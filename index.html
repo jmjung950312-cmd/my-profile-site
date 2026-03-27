@@ -75,18 +75,18 @@
   <!-- ========== NAVBAR ========== -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border/50">
     <div class="max-w-5xl mx-auto px-8 sm:px-12 h-16 flex items-center justify-between">
-      <a href="javascript:void(0)" onclick="event.preventDefault();showPage('hero')" class="flex items-center gap-2 group">
+      <button onclick="showPage('hero')" class="flex items-center gap-2 bg-transparent border-none cursor-pointer">
         <span class="text-lg font-bold text-soft">JM</span>
-      </a>
+      </button>
 
       <!-- 데스크톱 네비 -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="javascript:void(0)" onclick="event.preventDefault();showPage('hero')" class="nav-link text-sm text-muted hover:text-soft transition-colors active" data-page="hero">홈</a>
-        <a href="javascript:void(0)" onclick="event.preventDefault();showPage('about')" class="nav-link text-sm text-muted hover:text-soft transition-colors" data-page="about">소개</a>
-        <a href="javascript:void(0)" onclick="event.preventDefault();showPage('skills')" class="nav-link text-sm text-muted hover:text-soft transition-colors" data-page="skills">기술스택</a>
-        <a href="javascript:void(0)" onclick="event.preventDefault();showPage('projects')" class="nav-link text-sm text-muted hover:text-soft transition-colors" data-page="projects">프로젝트</a>
-        <a href="javascript:void(0)" onclick="event.preventDefault();showPage('resume')" class="nav-link text-sm text-muted hover:text-soft transition-colors" data-page="resume">이력서</a>
-        <a href="javascript:void(0)" onclick="event.preventDefault();showPage('contact')" class="border border-soft text-soft text-sm px-5 py-2 rounded-full hover:bg-soft hover:text-white transition-all font-medium">연락하기 &rarr;</a>
+        <button onclick="showPage('hero')" class="nav-link text-sm text-muted hover:text-soft transition-colors bg-transparent border-none cursor-pointer active" data-page="hero">홈</button>
+        <button onclick="showPage('about')" class="nav-link text-sm text-muted hover:text-soft transition-colors bg-transparent border-none cursor-pointer" data-page="about">소개</button>
+        <button onclick="showPage('skills')" class="nav-link text-sm text-muted hover:text-soft transition-colors bg-transparent border-none cursor-pointer" data-page="skills">기술스택</button>
+        <button onclick="showPage('projects')" class="nav-link text-sm text-muted hover:text-soft transition-colors bg-transparent border-none cursor-pointer" data-page="projects">프로젝트</button>
+        <button onclick="showPage('resume')" class="nav-link text-sm text-muted hover:text-soft transition-colors bg-transparent border-none cursor-pointer" data-page="resume">이력서</button>
+        <button onclick="showPage('contact')" class="border border-soft text-soft text-sm px-5 py-2 rounded-full hover:bg-soft hover:text-white transition-all font-medium cursor-pointer bg-transparent">연락하기 &rarr;</button>
       </div>
 
       <!-- 모바일 햄버거 -->
@@ -98,12 +98,12 @@
     <!-- 모바일 메뉴 -->
     <div id="mobile-menu" class="md:hidden bg-white border-t border-border/50">
       <div class="px-8 py-4 flex flex-col gap-4">
-        <a href="javascript:void(0)" onclick="showPage('hero');closeMobile()" class="text-sm text-muted hover:text-soft">홈</a>
-        <a href="javascript:void(0)" onclick="showPage('about');closeMobile()" class="text-sm text-muted hover:text-soft">소개</a>
-        <a href="javascript:void(0)" onclick="showPage('skills');closeMobile()" class="text-sm text-muted hover:text-soft">기술스택</a>
-        <a href="javascript:void(0)" onclick="showPage('projects');closeMobile()" class="text-sm text-muted hover:text-soft">프로젝트</a>
-        <a href="javascript:void(0)" onclick="showPage('resume');closeMobile()" class="text-sm text-muted hover:text-soft">이력서</a>
-        <a href="javascript:void(0)" onclick="showPage('contact');closeMobile()" class="text-sm text-muted hover:text-soft">연락하기</a>
+        <button onclick="showPage('hero');closeMobile()" class="text-sm text-muted hover:text-soft text-left bg-transparent border-none cursor-pointer">홈</button>
+        <button onclick="showPage('about');closeMobile()" class="text-sm text-muted hover:text-soft text-left bg-transparent border-none cursor-pointer">소개</button>
+        <button onclick="showPage('skills');closeMobile()" class="text-sm text-muted hover:text-soft text-left bg-transparent border-none cursor-pointer">기술스택</button>
+        <button onclick="showPage('projects');closeMobile()" class="text-sm text-muted hover:text-soft text-left bg-transparent border-none cursor-pointer">프로젝트</button>
+        <button onclick="showPage('resume');closeMobile()" class="text-sm text-muted hover:text-soft text-left bg-transparent border-none cursor-pointer">이력서</button>
+        <button onclick="showPage('contact');closeMobile()" class="text-sm text-muted hover:text-soft text-left bg-transparent border-none cursor-pointer">연락하기</button>
       </div>
     </div>
   </nav>
@@ -127,14 +127,14 @@
         </p>
 
         <div class="flex items-center gap-4 mb-16">
-          <a href="javascript:void(0)" onclick="event.preventDefault();showPage('projects')"
-             class="bg-soft text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+          <button onclick="showPage('projects')"
+             class="bg-soft text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors cursor-pointer">
             포트폴리오 보기 &rarr;
-          </a>
-          <a href="javascript:void(0)" onclick="event.preventDefault();showPage('contact')"
-             class="border border-border text-muted px-7 py-3 rounded-full text-sm font-medium hover:border-soft hover:text-soft transition-all">
+          </button>
+          <button onclick="showPage('contact')"
+             class="border border-border text-muted px-7 py-3 rounded-full text-sm font-medium hover:border-soft hover:text-soft transition-all cursor-pointer bg-transparent">
             연락하기
-          </a>
+          </button>
         </div>
 
         <div class="flex flex-wrap gap-3">
