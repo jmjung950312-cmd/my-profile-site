@@ -89,8 +89,63 @@
     #mobile-menu.open { max-height: 400px; opacity: 1; }
 
     /* 이미지 호버 */
-    .img-card { transition: transform 0.2s ease, border-color 0.15s ease; }
+    .img-card { transition: transform 0.2s ease, border-color 0.15s ease; cursor: zoom-in; position: relative; }
     .img-card:hover { transform: translateY(-2px); border-color: #0a0a0a; }
+    .img-card:hover .img-zoom-hint { opacity: 1; }
+
+    /* 비율 박스 — 꽉 채우기용 */
+    .ratio-mobile { aspect-ratio: 9 / 19; overflow: hidden; background: #f5f5f4; }
+    .ratio-desktop { aspect-ratio: 16 / 10; overflow: hidden; background: #f5f5f4; }
+    .ratio-mobile img, .ratio-desktop img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+
+    /* 클릭 힌트 (호버 시) */
+    .img-zoom-hint {
+      position: absolute; top: 8px; right: 8px;
+      width: 28px; height: 28px;
+      background: rgba(10,10,10,0.85); color: #fafaf9;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-size: 14px;
+      opacity: 0; transition: opacity 0.15s ease;
+      pointer-events: none;
+    }
+
+    /* 라이트박스 */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(10,10,10,0.92);
+      display: none;
+      align-items: center; justify-content: center;
+      z-index: 100;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .lightbox-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 40px; height: 40px;
+      background: transparent; color: #fafaf9;
+      border: 1px solid rgba(250,250,249,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-size: 18px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .lightbox-close:hover { background: rgba(250,250,249,0.1); }
+    .lightbox-caption {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      color: #d4d4d4; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      background: rgba(10,10,10,0.6);
+      padding: 6px 12px;
+      max-width: 90%; text-align: center;
+    }
 
     /* 코드 블록 */
     .code-line { font-family: 'JetBrains Mono', Menlo, Monaco, monospace; font-size: 0.875rem; color: #404040; }
@@ -474,20 +529,24 @@
         <p class="label mb-3">$ ls screenshots/ohajo/</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/ohajo/01-home.png" alt="ohajo 홈" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">홈 / 메인 피드</div>
+            <div class="ratio-mobile"><img src="assets/projects/ohajo/01-home.png" alt="ohajo 홈" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">홈 / 메인 피드</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/ohajo/02-aichat.png" alt="ohajo AI 매칭 챗봇" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">AI 매칭 챗봇 (오해봇)</div>
+            <div class="ratio-mobile"><img src="assets/projects/ohajo/02-aichat.png" alt="ohajo AI 매칭 챗봇" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">AI 매칭 챗봇 (오해봇)</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/ohajo/03-profile.png" alt="ohajo 마이페이지" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">마이페이지 / 활동 관리</div>
+            <div class="ratio-mobile"><img src="assets/projects/ohajo/03-profile.png" alt="ohajo 마이페이지" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">마이페이지 / 활동 관리</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/ohajo/04-livecard.png" alt="ohajo 라이브 입찰" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">라이브 입찰 카드</div>
+            <div class="ratio-mobile"><img src="assets/projects/ohajo/04-livecard.png" alt="ohajo 라이브 입찰" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">라이브 입찰 카드</div>
           </div>
         </div>
 
@@ -533,12 +592,14 @@
         <p class="label mb-3">$ ls screenshots/claude-nexus/</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/claude-nexus/01-dashboard.png" alt="nexus 시스템 개요 대시보드" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">시스템 개요 대시보드 (에이전트 31 / 스킬 20 / 훅 34 / 규칙 41)</div>
+            <div class="ratio-desktop"><img src="assets/projects/claude-nexus/01-dashboard.png" alt="nexus 시스템 개요 대시보드" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">시스템 개요 대시보드 (에이전트 31 / 스킬 20 / 훅 34 / 규칙 41)</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/claude-nexus/02-templates.png" alt="nexus 템플릿 페이지" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">프로젝트 템플릿 — 데이터 분석 / 스킬 개발 / 웹앱</div>
+            <div class="ratio-desktop"><img src="assets/projects/claude-nexus/02-templates.png" alt="nexus 템플릿 페이지" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">프로젝트 템플릿 — 데이터 분석 / 스킬 개발 / 웹앱</div>
           </div>
         </div>
 
@@ -584,16 +645,19 @@
         <p class="label mb-3">$ ls screenshots/tiktok/</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/tiktok/01-dashboard.png" alt="tiktok 자동화 대시보드" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">자동화 대시보드 (카테고리 선택 + 설정)</div>
+            <div class="ratio-desktop"><img src="assets/projects/tiktok/01-dashboard.png" alt="tiktok 자동화 대시보드" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">자동화 대시보드 (카테고리 선택 + 설정)</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/tiktok/02-teammates.png" alt="tiktok teammate pool" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">Teammate 풀 (12개 AI 에이전트)</div>
+            <div class="ratio-desktop"><img src="assets/projects/tiktok/02-teammates.png" alt="tiktok teammate pool" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">Teammate 풀 (12개 AI 에이전트)</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/tiktok/03-categories.png" alt="tiktok 카테고리" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">카테고리 선택 (5종)</div>
+            <div class="ratio-desktop"><img src="assets/projects/tiktok/03-categories.png" alt="tiktok 카테고리" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">카테고리 선택 (5종)</div>
           </div>
         </div>
 
@@ -657,22 +721,28 @@
         </div>
 
         <p class="label mb-3">$ ls screenshots/memex/</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-desktop"><img src="assets/projects/memex/01-profile.png" alt="memex 프로필" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">프로필 페이지 (memex.kr/jungmo)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-desktop"><img src="assets/projects/memex/02-post.png" alt="memex 발행글" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">발행된 글 (데스크톱)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-desktop"><img src="assets/projects/memex/03-editor.png" alt="memex 에디터" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">Tiptap 에디터 + AI 다듬기</div>
+          </div>
+        </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/memex/01-profile.png" alt="memex 프로필" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">프로필 페이지 (memex.kr/jungmo)</div>
-          </div>
-          <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/memex/02-post.png" alt="memex 발행글" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">발행된 글 (데스크톱)</div>
-          </div>
-          <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/memex/03-editor.png" alt="memex 에디터" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">Tiptap 에디터 + AI 다듬기</div>
-          </div>
-          <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/memex/04-mobile.png" alt="memex 모바일" class="w-full" loading="lazy" />
-            <div class="p-3 mono text-xs text-muted">모바일 반응형</div>
+            <div class="ratio-mobile"><img src="assets/projects/memex/04-mobile.png" alt="memex 모바일" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">모바일 반응형</div>
           </div>
         </div>
         <p class="mono text-xs text-muted/70 mb-10"># memex.kr · 비공개 베타 · 본인 페이지 전용 발행</p>
@@ -718,20 +788,24 @@
         <h4 class="font-semibold mb-4">분석 결과</h4>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/airbnb/dashboard_free.png" alt="무료 진단 대시보드" class="w-full" loading="lazy" />
-            <div class="p-3 text-xs text-muted">무료 진단 &mdash; 시장 위치 분석</div>
+            <div class="ratio-desktop"><img src="assets/projects/airbnb/dashboard_free.png" alt="무료 진단 대시보드" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">무료 진단 — 시장 위치 분석</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/airbnb/dashboard_paid.png" alt="유료 분석 대시보드" class="w-full" loading="lazy" />
-            <div class="p-3 text-xs text-muted">상세 분석 &mdash; 숙소 운영 건강 점수</div>
+            <div class="ratio-desktop"><img src="assets/projects/airbnb/dashboard_paid.png" alt="유료 분석 대시보드" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">상세 분석 — 숙소 운영 건강 점수</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/airbnb/shap.png" alt="SHAP 분석" class="w-full" loading="lazy" />
-            <div class="p-3 text-xs text-muted">SHAP 피처 중요도 분석</div>
+            <div class="ratio-desktop"><img src="assets/projects/airbnb/shap.png" alt="SHAP 분석" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">SHAP 피처 중요도 분석</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/airbnb/clustering.png" alt="클러스터링" class="w-full" loading="lazy" />
-            <div class="p-3 text-xs text-muted">K-Means 시장 세분화</div>
+            <div class="ratio-desktop"><img src="assets/projects/airbnb/clustering.png" alt="클러스터링" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">K-Means 시장 세분화</div>
           </div>
         </div>
 
@@ -779,20 +853,24 @@
         <h4 class="font-semibold mb-4">분석 결과</h4>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/lendingclub/model_comparison.png" alt="모델 성능 비교" class="w-full" loading="lazy" />
-            <div class="p-3 text-xs text-muted">ROC 곡선 및 모델 성능 비교</div>
+            <div class="ratio-desktop"><img src="assets/projects/lendingclub/model_comparison.png" alt="모델 성능 비교" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">ROC 곡선 및 모델 성능 비교</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/lendingclub/shap_summary.png" alt="SHAP 분석" class="w-full" loading="lazy" />
-            <div class="p-3 text-xs text-muted">SHAP Summary Plot</div>
+            <div class="ratio-desktop"><img src="assets/projects/lendingclub/shap_summary.png" alt="SHAP 분석" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">SHAP Summary Plot</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/lendingclub/risk_return.png" alt="리스크-수익률" class="w-full" loading="lazy" />
-            <div class="p-3 text-xs text-muted">등급별 리스크-수익률 분석</div>
+            <div class="ratio-desktop"><img src="assets/projects/lendingclub/risk_return.png" alt="리스크-수익률" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">등급별 리스크-수익률 분석</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <img src="assets/projects/lendingclub/portfolio_strategy.png" alt="포트폴리오 전략" class="w-full" loading="lazy" />
-            <div class="p-3 text-xs text-muted">등급별 최적 투자 포트폴리오 전략</div>
+            <div class="ratio-desktop"><img src="assets/projects/lendingclub/portfolio_strategy.png" alt="포트폴리오 전략" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">등급별 최적 투자 포트폴리오 전략</div>
           </div>
         </div>
 
@@ -889,6 +967,14 @@
   </div>
 
 
+  <!-- ========== 라이트박스 ========== -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="이미지 크게 보기">
+    <button id="lightbox-close" class="lightbox-close" aria-label="닫기">×</button>
+    <img id="lightbox-img" src="" alt="" />
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+
   <!-- ========== JAVASCRIPT ========== -->
   <script>
     // 페이지 전환
@@ -952,6 +1038,47 @@
       menuOpen = false;
       mobileMenu.classList.remove('open');
     }
+
+    // 라이트박스
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    function openLightbox(src, alt, caption) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightboxCaption.textContent = caption || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    // 이미지 카드 클릭 → 라이트박스
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('.img-card');
+      if (card) {
+        const img = card.querySelector('img');
+        const captionEl = card.querySelector('.img-caption');
+        if (img) {
+          openLightbox(img.src, img.alt, captionEl ? captionEl.textContent.trim() : '');
+        }
+        return;
+      }
+      // 배경 클릭 시 닫기 (이미지 클릭은 무시)
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
   </script>
 
 </body>
