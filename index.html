@@ -503,6 +503,7 @@
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
           <span class="label w-full sm:w-40 shrink-0">앱 개발</span>
           <button onclick="showProject('ohajo')" class="project-tab text-xs text-muted" data-project="ohajo">ohajo</button>
+          <button onclick="showProject('pickit')" class="project-tab text-xs text-muted" data-project="pickit">pick-it</button>
           <button onclick="showProject('memex')" class="project-tab text-xs text-muted" data-project="memex">memex</button>
           <button onclick="showProject('tiktok')" class="project-tab text-xs text-muted" data-project="tiktok">tiktok-automation</button>
         </div>
@@ -771,6 +772,70 @@
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">PRD &middot; Architecture</span>
         </div>
         <p class="text-xs text-muted/70">PRD/아키텍처 문서 공유 요청은 <a href="mailto:jmjungtube@gmail.com" class="underline">메일</a>로</p>
+      </div>
+
+      <!-- pick-it -->
+      <div id="project-pickit" class="project-content hidden">
+        <div class="mb-8 flex flex-wrap items-center gap-2">
+          <span class="mono text-xs text-paper bg-accent px-2.5 py-1">[ai-builder]</span>
+          <span class="text-xs mono text-muted border border-line px-2.5 py-1">개인 프로젝트 &middot; 2026.05</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">pick-it &mdash; 실시간 멀티플레이 파티 게임</h3>
+        <p class="text-muted leading-relaxed mb-8 max-w-2xl">
+          방 코드로 친구들이 모여 질문에 답하고 서로를 지목하는 실시간 파티 게임.
+          먼저 만든 로컬 의사결정 도구 <span class="text-soft font-medium">pick-quick</span>을
+          Firebase 기반 멀티플레이 게임으로 전면 재설계한 두 번째 버전입니다.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">재설계</div><div class="text-xs text-muted mt-1">pick-quick &rarr; pick-it</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">실시간</div><div class="text-xs text-muted mt-1">Firebase 동기화</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">광고</div><div class="text-xs text-muted mt-1">AdMob 수익화</div></div>
+        </div>
+
+        <div class="tech-card p-6 mb-10 max-w-2xl bg-light">
+          <h4 class="font-semibold text-sm mb-3">pick-quick &rarr; pick-it 개선</h4>
+          <ul class="text-sm text-muted space-y-2">
+            <li><span class="text-soft font-medium">시작:</span> pick-quick &mdash; 사다리·룰렛·팀짜기·분담금 등 로컬 단일 기기 의사결정 도구 (하루 제작)</li>
+            <li><span class="text-soft font-medium">한계:</span> 한 명이 입력하고 끝 &mdash; 함께 노는 재미가 없었음</li>
+            <li><span class="text-soft font-medium">재설계:</span> 같은 모바일 스택으로 실시간 멀티플레이 파티 게임으로 전환</li>
+            <li><span class="text-soft font-medium">개선:</span> 로컬 &rarr; Firebase 실시간 동기화 · 익명 인증 + 보안 규칙 · 4단계 게임 상태머신 · 다크 3D 리브랜딩 · AdMob 광고</li>
+          </ul>
+        </div>
+
+        <p class="label mb-3">$ ls screenshots/pickit/</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/pickit/home.png" alt="픽잇 홈" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">홈 (3D 로고)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/pickit/lobby.png" alt="픽잇 로비" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">방 로비 (4자리 코드)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/pickit/question.png" alt="픽잇 질문" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">질문 + 지목 (10초 카운트다운)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/pickit/result.png" alt="픽잇 결과" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">결과 집계 (실시간 득표)</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">React Native</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Expo</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Firebase Realtime DB</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Reanimated</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">AdMob</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">TypeScript</span>
+        </div>
+        <p class="text-xs text-muted/70">앱스토어 출시 준비 중</p>
       </div>
 
       <!-- 에어비앤비 -->
