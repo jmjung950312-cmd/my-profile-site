@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --paper: #fafaf9;
+    --ink: #0a0a0a;
+    --muted: #737373;
+    --line: #e5e5e5;
+    --light: #f5f5f4;
+    --accent: #16a34a;
+    --accent-soft: #dcfce7;
+    --grey: #a3a3a3;
+  }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    padding: 96px 88px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* 상단 라벨 */
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #525252;
+    margin-bottom: 28px;
+  }
+  .label::before { content: '$ '; color: var(--accent); }
+
+  /* 터미널 카드 */
+  .card {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--line);
+    background: var(--light);
+  }
+  .dot { width: 15px; height: 15px; border-radius: 50%; }
+  .dot.r { background: rgba(248,113,113,0.8); }
+  .dot.y { background: rgba(250,204,21,0.8); }
+  .dot.g { background: rgba(74,222,128,0.85); }
+  .card-head .path {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    color: var(--muted);
+    margin-left: 16px;
+  }
+
+  .card-body { padding: 56px 56px 48px; display: flex; flex-direction: column; height: 100%; }
+
+  .pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 8px 18px;
+    align-self: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .comment-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    color: var(--grey);
+    margin-bottom: 14px;
+  }
+
+  .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 116px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .title .cur { color: var(--accent); }
+
+  .subtitle {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 44px;
+  }
+
+  .divider { border-top: 1px solid var(--line); margin-bottom: 36px; }
+
+  .code-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 29px;
+    line-height: 1.05;
+    margin-bottom: 26px;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .code-line .key { color: var(--accent); }
+  .code-line .eq { color: var(--grey); padding: 0 12px; }
+  .code-line .val { color: var(--ink); font-weight: 500; }
+
+  /* 흐름 */
+  .flow {
+    margin-top: auto;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid var(--line);
+  }
+  .flow .step {
+    flex: 1;
+    padding: 26px 18px;
+    text-align: center;
+  }
+  .flow .step + .step { border-left: 1px solid var(--line); }
+  .flow .n {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 19px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .flow .t {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .flow .d {
+    font-size: 19px;
+    color: var(--muted);
+  }
+  .flow .arrow {
+    display: flex;
+    align-items: center;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 30px;
+    padding: 0 4px;
+  }
+
+  /* 풋터 */
+  .footer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: var(--muted);
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer .brand { color: var(--ink); font-weight: 600; }
+  .footer .brand .acc { color: var(--accent); }
+</style>
+</head>
+<body>
+
+  <div class="label">cat ~/projects/ohajo.md</div>
+
+  <div class="card">
+    <div class="card-head">
+      <span class="dot r"></span>
+      <span class="dot y"></span>
+      <span class="dot g"></span>
+      <span class="path mono">ohajo — sports reverse-auction</span>
+    </div>
+
+    <div class="card-body">
+      <div class="pill">[ ai-builder ]</div>
+
+      <div class="comment-line">// 동호인 스포츠 역경매 매칭 플랫폼</div>
+      <div class="title">ohajo<span class="cur">_</span></div>
+      <div class="subtitle">기획부터 백엔드 · 모바일 앱 · 인프라까지 0 → 1</div>
+
+      <div class="divider"></div>
+
+      <div class="code-line"><span class="key">problem</span><span class="eq">=</span><span class="val">"매칭 정보 비대칭 → 시간·비용 낭비"</span></div>
+      <div class="code-line"><span class="key">solution</span><span class="eq">=</span><span class="val">"역경매 — 내가 조건 올리면 시설·강사가 입찰"</span></div>
+      <div class="code-line"><span class="key">stack</span><span class="eq">=</span><span class="val">"Next.js · NestJS · Expo · Railway"</span></div>
+      <div class="code-line"><span class="key">role</span><span class="eq">=</span><span class="val">"문제 정의 · 아키텍처 · QA · 배포 운영"</span></div>
+
+      <div class="flow">
+        <div class="step">
+          <div class="n">01</div>
+          <div class="t">조건 게시</div>
+          <div class="d">내가 원하는 조건</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="n">02</div>
+          <div class="t">역경매 입찰</div>
+          <div class="d">시설·강사가 제안</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="n">03</div>
+          <div class="t">최적 매칭</div>
+          <div class="d">비교 후 선택</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>// AI 멀티에이전트로 0→1</span>
+        <span class="brand">jm<span class="acc">.</span>dev</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #14161B;
+    --surface: #1C1F26;
+    --surface-2: #22262F;
+    --line: #2C313B;
+    --amber: #FF8700;       /* JARVIS — ANSI 208 */
+    --amber-deep: #B35E00;
+    --scarlet: #E12B3C;     /* WANDA — ANSI 124 core #AF0000, 가독 톤 */
+    --scarlet-deep: #AF0000;
+    --ink: #F4F5F7;
+    --muted: #9AA0AC;
+    --faint: #6B7280;
+  }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 88px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* 헤더 */
+  .head { display: flex; align-items: center; gap: 16px; margin-bottom: 44px; }
+  .jarvis-mark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 34px; font-weight: 700; color: var(--amber);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .jarvis-mark .dia { font-size: 30px; }
+  .head .sys { font-size: 27px; color: var(--muted); font-weight: 500; }
+  .head .tag {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 21px; color: var(--amber); font-weight: 600;
+    border: 1px solid var(--amber-deep); border-radius: 999px;
+    padding: 9px 20px;
+  }
+
+  /* 헤드라인 */
+  .headline { font-size: 70px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .headline .a { color: var(--amber); }
+  .headline .w { color: var(--scarlet); }
+  .sub { font-size: 27px; color: var(--muted); font-weight: 500; margin-bottom: 50px; line-height: 1.5; }
+
+  /* 두 페르소나 */
+  .duo { display: flex; gap: 24px; margin-bottom: 40px; }
+  .persona {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 34px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  }
+  .persona.j::before { background: var(--amber); }
+  .persona.w::before { background: var(--scarlet); }
+
+  .p-ico {
+    width: 64px; height: 64px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+  .persona.j .p-ico { background: rgba(255,135,0,0.12); }
+  .persona.w .p-ico { background: rgba(225,43,60,0.13); }
+  .p-ico svg { width: 34px; height: 34px; stroke-width: 2; fill: none; }
+  .persona.j .p-ico svg { stroke: var(--amber); }
+  .persona.w .p-ico svg { stroke: var(--scarlet); }
+
+  .p-name { font-family: 'JetBrains Mono', monospace; font-size: 30px; font-weight: 700; margin-bottom: 4px; }
+  .persona.j .p-name { color: var(--amber); }
+  .persona.w .p-name { color: var(--scarlet); }
+  .p-role { font-size: 24px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+  .p-desc { font-size: 22px; color: var(--muted); line-height: 1.5; }
+  .p-when {
+    margin-top: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px; color: var(--faint);
+  }
+
+  /* 가운데 루프 표식 */
+  .loop {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    font-family: 'JetBrains Mono', monospace; font-size: 23px; color: var(--muted);
+    margin-bottom: 38px;
+  }
+  .loop .gen { color: var(--amber); }
+  .loop .eval { color: var(--scarlet); }
+  .loop .ar { color: var(--faint); }
+
+  /* 인용 */
+  .quote {
+    border-left: 3px solid var(--scarlet);
+    padding: 6px 0 6px 26px;
+    margin-bottom: auto;
+  }
+  .quote .q { font-size: 26px; color: var(--ink); font-weight: 500; line-height: 1.5; margin-bottom: 8px; }
+  .quote .qs { font-size: 20px; color: var(--faint); }
+
+  /* 하단 메타 */
+  .footer {
+    border-top: 1px solid var(--line);
+    padding-top: 26px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .metrics { display: flex; gap: 34px; }
+  .metric .n { font-family: 'JetBrains Mono', monospace; font-size: 30px; font-weight: 700; color: var(--ink); }
+  .metric .n .plus { color: var(--amber); }
+  .metric .l { font-size: 18px; color: var(--muted); margin-top: 2px; }
+  .who { font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--amber); font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <div class="jarvis-mark"><span class="dia">◆</span>JARVIS</div>
+    <span class="sys">나만의 AI 운영 시스템</span>
+    <span class="tag">claude-nexus</span>
+  </div>
+
+  <div class="headline">
+    <span class="a">만드는 AI</span>를<br />
+    <span class="w">감시하는 AI</span>가 검수한다
+  </div>
+  <div class="sub">AI가 자기 결과를 자기가 평가하면 늘 "잘했다"고 한다.<br />그 편향을 끊으려고 평가자를 분리했다.</div>
+
+  <div class="duo">
+    <div class="persona j">
+      <div class="p-ico">
+        <svg viewBox="0 0 24 24"><path d="M12 2l8 5v10l-8 5-8-5V7z"/><path d="M12 7v10M8 9.5v5M16 9.5v5"/></svg>
+      </div>
+      <div class="p-name">◆ JARVIS</div>
+      <div class="p-role">생성자 · Generator</div>
+      <div class="p-desc">비전의 영혼. 코드를 만들고 일을 실행한다.</div>
+      <div class="p-when">// amber · 매 순간 일한다</div>
+    </div>
+
+    <div class="persona w">
+      <div class="p-ico">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v3l2 2"/></svg>
+      </div>
+      <div class="p-name">WANDA</div>
+      <div class="p-role">평가자 · Evaluator</div>
+      <div class="p-desc">외부 시선. 자비스 응답을 가차 없이 채점한다.</div>
+      <div class="p-when">// scarlet · 검수할 때만</div>
+    </div>
+  </div>
+
+  <div class="loop">
+    <span class="gen">JARVIS 생성</span><span class="ar">→</span><span class="eval">WANDA 검수</span><span class="ar">→</span><span>다시 JARVIS</span>
+  </div>
+
+  <div class="quote">
+    <div class="q">"비전을 가장 사랑하면서, 동시에 가장 객관적으로 본다."</div>
+    <div class="qs">— 완다는 학습하지 않는다. 그래서 자기평가 편향이 끼어들 틈이 없다.</div>
+  </div>
+
+  <div class="footer">
+    <div class="metrics">
+      <div class="metric"><div class="n">29<span class="plus">+</span></div><div class="l">AI 에이전트</div></div>
+      <div class="metric"><div class="n">38<span class="plus">+</span></div><div class="l">자동화 툴</div></div>
+      <div class="metric"><div class="n">100%</div><div class="l">로컬 · 무료</div></div>
+    </div>
+    <div class="who">AI Builder · jungmo</div>
+  </div>
+
+</body>
+</html>

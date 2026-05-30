@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FDFCFA;
+    --sage: #89AB93;
+    --sage-deep: #2D5F3F;
+    --sage-50: #F4F8F5;
+    --sage-100: #E0EAE3;
+    --navy: #1E2A38;
+    --navy-soft: #6B7684;
+    --gold: #B8986E;
+    --border: #E5E1D9;
+  }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--navy);
+    background: var(--bg);
+    padding: 92px 84px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 상단 브랜드 행 */
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+  .brand-mark {
+    width: 64px; height: 64px;
+    border-radius: 20px;
+    background: var(--sage);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 18px rgba(137,171,147,0.35);
+  }
+  .brand-mark svg { width: 36px; height: 36px; stroke: #ffffff; stroke-width: 2.2; fill: none; }
+  .brand-name { font-size: 34px; font-weight: 800; color: var(--sage-deep); letter-spacing: -0.01em; }
+  .brand-name .en { color: var(--navy-soft); font-weight: 500; font-size: 26px; margin-left: 10px; }
+  .brand-tag {
+    margin-left: auto;
+    font-size: 22px; font-weight: 700;
+    color: var(--sage-deep);
+    background: var(--sage-100);
+    padding: 10px 22px; border-radius: 999px;
+  }
+
+  /* 헤드라인 */
+  .headline {
+    font-size: 76px; font-weight: 900; line-height: 1.18;
+    letter-spacing: -0.025em; margin-bottom: 24px;
+  }
+  .headline .hl { color: var(--sage-deep); }
+  .subline {
+    font-size: 31px; font-weight: 500; color: var(--navy-soft);
+    line-height: 1.5; margin-bottom: 56px;
+  }
+
+  /* 3스텝 흐름 */
+  .steps { display: flex; flex-direction: column; gap: 20px; margin-bottom: 44px; }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 30px 34px;
+    display: flex; align-items: center; gap: 28px;
+    box-shadow: 0 4px 14px rgba(30,42,56,0.04);
+  }
+  .step-ico {
+    width: 76px; height: 76px; flex-shrink: 0;
+    border-radius: 20px;
+    background: var(--sage-50);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-ico svg { width: 40px; height: 40px; stroke: var(--sage-deep); stroke-width: 2; fill: none; }
+  .step-num {
+    font-size: 22px; font-weight: 800; color: var(--sage);
+    letter-spacing: 0.05em; margin-bottom: 4px;
+  }
+  .step-title { font-size: 34px; font-weight: 800; color: var(--navy); margin-bottom: 3px; }
+  .step-desc { font-size: 25px; font-weight: 500; color: var(--navy-soft); }
+  .step-role {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 21px; font-weight: 700;
+    padding: 8px 18px; border-radius: 999px;
+  }
+  .role-buyer { color: var(--sage-deep); background: var(--sage-100); }
+  .role-seller { color: #7A6040; background: #F0E6D6; }
+
+  /* 하단 메타 */
+  .footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer .stack { font-size: 23px; font-weight: 500; color: var(--navy-soft); }
+  .footer .stack b { color: var(--navy); font-weight: 700; }
+  .footer .who { font-size: 23px; font-weight: 700; color: var(--sage-deep); }
+</style>
+</head>
+<body>
+
+  <div class="brand-row">
+    <div class="brand-mark">
+      <!-- 위치 핀 + 체크 (동네 매칭) -->
+      <svg viewBox="0 0 24 24"><path d="M12 21s7-5.686 7-11a7 7 0 1 0-14 0c0 5.314 7 11 7 11z"/><path d="M9 10.5l2 2 3.5-3.5"/></svg>
+    </div>
+    <div class="brand-name">오해죠<span class="en">ohajo</span></div>
+    <div class="brand-tag">동네 스포츠 매칭</div>
+  </div>
+
+  <div class="headline">
+    원하는 운동,<br />
+    <span class="hl">내가 정한 조건</span>으로
+  </div>
+  <div class="subline">
+    회원이 종목을 의뢰하면, 동네 전문가들이 제안해요.<br />
+    가격을 소비자가 정하는 새로운 스포츠 매칭.
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-ico">
+        <svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 0 1-5.8-1.1"/></svg>
+      </div>
+      <div>
+        <div class="step-num">STEP 01</div>
+        <div class="step-title">종목·조건 의뢰</div>
+        <div class="step-desc">내가 원하는 운동과 조건을 올려요</div>
+      </div>
+      <div class="step-role role-buyer">회원</div>
+    </div>
+
+    <div class="step">
+      <div class="step-ico">
+        <svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><path d="M5 9h14l-1 11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 9z"/></svg>
+      </div>
+      <div>
+        <div class="step-num">STEP 02</div>
+        <div class="step-title">전문가가 제안</div>
+        <div class="step-desc">동네 전문가 여러 명이 제안을 보내요</div>
+      </div>
+      <div class="step-role role-seller">전문가</div>
+    </div>
+
+    <div class="step">
+      <div class="step-ico">
+        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div>
+        <div class="step-num">STEP 03</div>
+        <div class="step-title">한 명 선택 · 매칭</div>
+        <div class="step-desc">제안을 비교하고 한 명을 확정해요</div>
+      </div>
+      <div class="step-role role-buyer">회원</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="stack">기획 · 백엔드 · 앱 · 인프라 0→1 &nbsp;·&nbsp; <b>Next.js · NestJS · Expo</b></div>
+    <div class="who">AI Builder · jungmo</div>
+  </div>
+
+</body>
+</html>

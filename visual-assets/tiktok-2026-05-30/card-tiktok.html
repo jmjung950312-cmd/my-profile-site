@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FAFAF9;
+    --surface: #FFFFFF;
+    --line: #E5E5E5;
+    --blue: #3080FF;        /* tiktok-automation 블루 */
+    --blue-deep: #1E5FD0;
+    --blue-soft: #E8F0FF;
+    --ink: #14161B;
+    --muted: #667085;
+    --faint: #98A2B3;
+  }
+
+  html, body { height: 100%; }
+  body {
+    width: 1080px;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.022) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.022) 1px, transparent 1px);
+    background-size: 48px 48px;
+    color: var(--ink);
+    padding: 96px 84px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .head { display: flex; align-items: center; gap: 16px; margin-bottom: 50px; }
+  .brand-mark {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 16px rgba(48,128,255,0.3);
+  }
+  .brand-mark svg { width: 30px; height: 30px; stroke: #fff; stroke-width: 2.2; fill: none; }
+  .brand-name { font-family: 'JetBrains Mono', monospace; font-size: 33px; font-weight: 700; color: var(--blue-deep); letter-spacing: -0.01em; }
+  .head .sys { font-size: 26px; color: var(--muted); font-weight: 500; }
+  .head .tag {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; color: var(--blue-deep); font-weight: 600;
+    border: 1px solid var(--blue); border-radius: 999px;
+    padding: 10px 22px;
+  }
+
+  .headline { font-size: 76px; font-weight: 800; line-height: 1.24; letter-spacing: -0.025em; margin-bottom: 24px; }
+  .headline .hl { color: var(--blue-deep); }
+  .sub { font-size: 30px; color: var(--muted); font-weight: 500; line-height: 1.55; }
+
+  .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 48px; }
+
+  /* 파이프라인 가로 흐름 */
+  .pipe {
+    display: flex; align-items: stretch; gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 14px;
+    box-shadow: 0 6px 20px rgba(20,22,27,0.05);
+  }
+  .pipe .stage { flex: 1; text-align: center; padding: 26px 12px; }
+  .pipe .n { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--blue); font-weight: 700; margin-bottom: 12px; }
+  .pipe .si {
+    width: 56px; height: 56px; margin: 0 auto 14px;
+    border-radius: 15px; background: var(--blue-soft);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pipe .si svg { width: 30px; height: 30px; stroke: var(--blue-deep); stroke-width: 2; fill: none; }
+  .pipe .t { font-size: 27px; font-weight: 800; color: var(--ink); margin-bottom: 3px; }
+  .pipe .d { font-size: 20px; color: var(--muted); }
+  .pipe .arrow { display: flex; align-items: center; color: var(--blue); font-family: 'JetBrains Mono', monospace; font-size: 30px; }
+
+  /* 특징 3카드 */
+  .feats { display: flex; gap: 22px; }
+  .feat {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 30px 30px;
+    box-shadow: 0 4px 14px rgba(20,22,27,0.04);
+  }
+  .feat .big { font-family: 'JetBrains Mono', monospace; font-size: 44px; font-weight: 700; color: var(--blue-deep); line-height: 1; margin-bottom: 12px; }
+  .feat .ft { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+  .feat .fd { font-size: 21px; color: var(--muted); line-height: 1.45; }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    padding-top: 36px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer .stack { font-size: 23px; font-weight: 500; color: var(--muted); }
+  .footer .stack b { color: var(--ink); font-weight: 700; }
+  .footer .who2 { font-family: 'JetBrains Mono', monospace; font-size: 24px; color: var(--blue-deep); font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg>
+    </div>
+    <div class="brand-name">tiktok-automation</div>
+    <span class="sys">숏폼 콘텐츠 자동화</span>
+    <span class="tag">GitHub</span>
+  </div>
+
+  <div class="headline">
+    스크립트부터 자막까지,<br />
+    <span class="hl">한 파이프라인</span>으로
+  </div>
+  <div class="sub">TTS·영상·자막·편집을 하나의 워크플로우로 통합한,<br />1인이 돌리는 콘텐츠 공장.</div>
+
+  <div class="mid">
+    <div class="pipe">
+      <div class="stage">
+        <div class="n">01</div>
+        <div class="si"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+        <div class="t">스크립트</div>
+        <div class="d">AI 생성</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="stage">
+        <div class="n">02</div>
+        <div class="si"><svg viewBox="0 0 24 24"><path d="M3 10v4M7 7v10M11 4v16M15 8v8M19 11v2"/></svg></div>
+        <div class="t">TTS</div>
+        <div class="d">음성 합성</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="stage">
+        <div class="n">03</div>
+        <div class="si"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div>
+        <div class="t">영상</div>
+        <div class="d">생성·편집</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="stage">
+        <div class="n">04</div>
+        <div class="si"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 14h6M7 11h10"/></svg></div>
+        <div class="t">자막</div>
+        <div class="d">싱크·렌더</div>
+      </div>
+    </div>
+
+    <div class="feats">
+      <div class="feat">
+        <div class="big">4단계</div>
+        <div class="ft">모듈식 파이프라인</div>
+        <div class="fd">각 단계가 독립 모듈</div>
+      </div>
+      <div class="feat">
+        <div class="big">∞</div>
+        <div class="ft">도구 교체 자유</div>
+        <div class="fd">단계별 도구 갈아끼우기</div>
+      </div>
+      <div class="feat">
+        <div class="big">1인</div>
+        <div class="ft">제작 가능 인원</div>
+        <div class="fd">생성 → 검증 → 수정까지</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="stack">파이프라인 설계 · 모듈 인터페이스 · 품질 기준 &nbsp;·&nbsp; <b>Node.js · FFmpeg · TTS API</b></div>
+    <div class="who2">AI Builder · jungmo</div>
+  </div>
+
+</body>
+</html>

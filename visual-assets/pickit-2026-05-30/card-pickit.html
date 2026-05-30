@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FAFAF9;
+    --surface: #FFFFFF;
+    --line: #E5E5E5;
+    --pink: #FF4D6D;        /* pick-it 코랄 핑크 — 앱 액센트 */
+    --pink-deep: #E0334F;
+    --pink-soft: #FFE9EE;
+    --ink: #1A1A22;
+    --muted: #667085;
+    --faint: #98A2B3;
+  }
+
+  html, body { height: 100%; }
+  body {
+    width: 1080px;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.022) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.022) 1px, transparent 1px);
+    background-size: 48px 48px;
+    color: var(--ink);
+    padding: 96px 84px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .head { display: flex; align-items: center; gap: 16px; margin-bottom: 50px; }
+  .brand-mark {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: var(--pink);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 16px rgba(255,77,109,0.32);
+  }
+  .brand-mark svg { width: 30px; height: 30px; stroke: #fff; stroke-width: 2.2; fill: none; }
+  .brand-name { font-size: 36px; font-weight: 800; color: var(--pink-deep); letter-spacing: -0.01em; }
+  .head .sys { font-size: 27px; color: var(--muted); font-weight: 500; }
+  .head .tag {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; color: var(--pink-deep); font-weight: 600;
+    border: 1px solid var(--pink); border-radius: 999px;
+    padding: 10px 22px;
+  }
+
+  .headline { font-size: 78px; font-weight: 800; line-height: 1.22; letter-spacing: -0.025em; margin-bottom: 24px; }
+  .headline .hl { color: var(--pink-deep); }
+  .sub { font-size: 30px; color: var(--muted); font-weight: 500; line-height: 1.55; }
+
+  .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+
+  .step {
+    display: flex; align-items: center; gap: 26px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 26px 32px;
+    box-shadow: 0 4px 14px rgba(26,26,34,0.04);
+  }
+  .step .num {
+    width: 58px; height: 58px; flex-shrink: 0;
+    border-radius: 16px;
+    background: var(--pink); color: #fff;
+    font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step .t { font-size: 31px; font-weight: 800; color: var(--ink); }
+  .step .t .hl { color: var(--pink-deep); }
+  .step .d { font-size: 23px; color: var(--muted); margin-top: 2px; }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    padding-top: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer .stack { font-size: 23px; font-weight: 500; color: var(--muted); }
+  .footer .stack b { color: var(--ink); font-weight: 700; }
+  .footer .who2 { font-family: 'JetBrains Mono', monospace; font-size: 24px; color: var(--pink-deep); font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24"><path d="M9 11V6a2 2 0 0 1 4 0v5"/><path d="M13 11V8a2 2 0 0 1 4 0v3"/><path d="M17 11.5a2 2 0 0 1 4 0V16a6 6 0 0 1-6 6h-2a7 7 0 0 1-5-2l-4-4a2 2 0 0 1 3-3l2 2V6a2 2 0 0 1 4 0v5"/></svg>
+    </div>
+    <div class="brand-name">pick-it</div>
+    <span class="sys">실시간 멀티플레이 파티 게임</span>
+    <span class="tag">App Store</span>
+  </div>
+
+  <div class="headline">
+    오늘 술자리,<br />
+    <span class="hl">폰 하나로</span> 픽잇
+  </div>
+  <div class="sub">방 코드로 친구들이 모여 질문에 답하고,<br />서로를 지목하는 실시간 멀티플레이 게임.</div>
+
+  <div class="mid">
+    <div class="step">
+      <div class="num">1</div>
+      <div><div class="t">방장이 <span class="hl">4자리 코드</span> 공유</div><div class="d">방 만들기 한 번이면 끝</div></div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div><div class="t">친구들이 코드 입력해 입장</div><div class="d">4~8명, 닉네임만 적으면 시작</div></div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div><div class="t">질문 등장 → <span class="hl">10초 안에 지목</span></div><div class="d">각자 폰에서 한 명 콕</div></div>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div><div class="t">결과 발표 → 따당!</div><div class="d">실시간 득표 집계 + 다음 질문 자동</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="stack">pick-quick → pick-it 재설계 &nbsp;·&nbsp; <b>React Native · Firebase · AdMob</b></div>
+    <div class="who2">App Store · "픽잇" 검색</div>
+  </div>
+
+</body>
+</html>
