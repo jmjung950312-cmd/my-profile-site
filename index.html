@@ -42,6 +42,14 @@
       font-family: 'Inter', 'Noto Sans KR', sans-serif;
       color: #0a0a0a;
       background: #fafaf9;
+    }
+    /* 배경 격자를 화면에 고정 — 스크롤 시 재페인트 제거 (성능) */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
       background-image:
         linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px);
@@ -186,7 +194,7 @@
 <body class="overflow-x-hidden">
 
   <!-- ========== NAVBAR ========== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-paper/90 backdrop-blur border-b border-line">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-paper border-b border-line">
     <div class="max-w-5xl mx-auto px-6 sm:px-10 h-14 flex items-center justify-between">
       <button onclick="showPage('hero')" class="flex items-center gap-2 bg-transparent border-none cursor-pointer mono">
         <span class="text-base font-bold text-ink">jm</span><span class="text-accent">.</span><span class="text-muted text-sm">dev</span>
