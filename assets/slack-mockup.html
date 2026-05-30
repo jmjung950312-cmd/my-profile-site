@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<style>
+  /* 자비스 슬랙 시스템 — 포트폴리오용 화면 목업 (실제 발송 메시지 기반) */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #1d1c1d;
+    --muted: #616061;
+    --line: #e8e8e8;
+    --accent: #2f9e44;       /* 포트폴리오 그린 */
+    --side-bg: #f8f8f9;
+    --hover: #f1f1f2;
+    --bot: #4a154b;          /* 슬랙 오리지널 퍼플 — 봇 아바타 */
+  }
+  body {
+    font-family: -apple-system, "Apple SD Gothic Neo", "Pretendard", "Helvetica Neue", sans-serif;
+    background: #e9e9ec;
+    padding: 26px;
+    display: inline-flex;
+    justify-content: center;
+  }
+  .window {
+    width: 1180px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.22);
+    overflow: hidden;
+    display: flex;
+    border: 1px solid #d0d0d0;
+  }
+
+  /* ── 좌측 사이드바 ── */
+  .sidebar { width: 300px; background: var(--side-bg); border-right: 1px solid var(--line); padding: 0; }
+  .ws-head {
+    padding: 18px 20px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .ws-name { font-size: 19px; font-weight: 800; color: var(--ink); letter-spacing: -.3px; }
+  .ws-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(47,158,68,.18); }
+  .sec-label { padding: 18px 20px 6px; font-size: 12.5px; color: var(--muted); font-weight: 700; }
+  .chan {
+    padding: 8px 20px; font-size: 15.5px; color: var(--muted);
+    display: flex; align-items: center; gap: 9px; cursor: default;
+  }
+  .chan .hash { color: #bbb; font-weight: 600; }
+  .chan .desc { font-size: 11.5px; color: #9a9a9a; margin-left: auto; }
+  .chan.active { background: var(--accent); color: #fff; font-weight: 700; border-radius: 0; }
+  .chan.active .hash { color: rgba(255,255,255,.8); }
+  .chan.active .desc { color: rgba(255,255,255,.85); }
+  .chan.unread { color: var(--ink); font-weight: 700; }
+  .badge {
+    margin-left: auto; background: #e01e5a; color: #fff; font-size: 11px;
+    font-weight: 700; border-radius: 10px; padding: 1px 7px;
+  }
+
+  /* ── 우측 메인 ── */
+  .main { flex: 1; display: flex; flex-direction: column; }
+  .main-head {
+    padding: 16px 26px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .main-head .title { font-size: 17px; font-weight: 800; color: var(--ink); }
+  .main-head .hash { color: #bbb; }
+  .main-head .topic { font-size: 13px; color: var(--muted); margin-left: 8px; padding-left: 12px; border-left: 1px solid var(--line); }
+
+  .feed { padding: 14px 26px 22px; }
+  .daydiv { text-align: center; margin: 14px 0 18px; position: relative; }
+  .daydiv span { background: #fff; position: relative; z-index: 1; padding: 0 14px; font-size: 12.5px; font-weight: 700; color: var(--muted); }
+  .daydiv:before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--line); }
+
+  .msg { display: flex; gap: 13px; padding: 10px 0; }
+  .ava {
+    width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 17px; color: #fff;
+  }
+  .ava.bot { background: var(--bot); }
+  .ava.me  { background: #1264a3; }
+  .body { flex: 1; }
+  .row1 { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+  .who { font-weight: 800; font-size: 15.5px; color: var(--ink); }
+  .app { background: #ddd; color: #4a4a4a; font-size: 10.5px; font-weight: 700; border-radius: 3px; padding: 1px 5px; letter-spacing: .3px; }
+  .time { font-size: 12px; color: #9a9a9a; }
+  .text { font-size: 15px; line-height: 1.62; color: #1d1c1d; }
+  .text .b { font-weight: 800; }
+  .text .bullet { margin-top: 2px; }
+  .text .sub { color: var(--muted); padding-left: 16px; }
+  .text .em { color: var(--accent); font-weight: 700; }
+  .mention { color: #1264a3; background: #e8f1fb; border-radius: 3px; padding: 0 3px; font-weight: 600; }
+  .divider-soft { height: 14px; }
+</style>
+</head>
+<body>
+  <div class="window">
+    <!-- 사이드바 -->
+    <aside class="sidebar">
+      <div class="ws-head">
+        <span class="ws-name">JARVIS</span>
+        <span class="ws-dot" title="온라인"></span>
+      </div>
+      <div class="sec-label">채널 — 일의 종류로 분리</div>
+      <div class="chan active"><span class="hash">#</span> ops <span class="desc">운영 리듬</span></div>
+      <div class="chan unread"><span class="hash">#</span> project <span class="badge">3</span></div>
+      <div class="chan"><span class="hash">#</span> ideas <span class="desc">아이디어</span></div>
+      <div class="chan"><span class="hash">#</span> marketing <span class="desc">초안</span></div>
+      <div class="chan unread"><span class="hash">#</span> followup <span class="badge">1</span></div>
+    </aside>
+
+    <!-- 메인: #ops -->
+    <section class="main">
+      <div class="main-head">
+        <span class="title"><span class="hash">#</span> ops</span>
+        <span class="topic">매일 아침·저녁 전체 현황 자동 보고 · 정모님은 보기만</span>
+      </div>
+
+      <div class="feed">
+        <div class="daydiv"><span>오늘 — 5월 30일 (금)</span></div>
+
+        <!-- 아침 자동 브리핑 -->
+        <div class="msg">
+          <div class="ava bot">J</div>
+          <div class="body">
+            <div class="row1"><span class="who">JARVIS</span><span class="app">자동</span><span class="time">오전 8:00</span></div>
+            <div class="text">
+              🌅 좋은 아침이에요, 정모님. — 5월 30일<br>
+              오늘의 프로젝트 현황입니다.<br>
+              <div class="bullet">• <span class="b">Ohajo</span> — 빌드 40 발행 완료, 다음은 매칭 미결제 처리</div>
+              <div class="bullet">• <span class="b">Memex</span> — R3c 소셜 다매체 동선 작업 중</div>
+              <div class="bullet">• <span class="b">포트폴리오</span> — <span class="em">about 글 갱신 대기</span></div>
+              <div class="bullet">• <span class="b">TikTok 자동화</span> — 💤 8일째 잠잠 — 한 번 들여다볼까요?</div>
+              오늘도 화이팅이에요. 필요한 거 있으면 불러주세요.
+            </div>
+          </div>
+        </div>
+
+        <!-- 양방향: 정모님 호출 -->
+        <div class="msg">
+          <div class="ava me">정</div>
+          <div class="body">
+            <div class="row1"><span class="who">정모</span><span class="time">오전 9:32</span></div>
+            <div class="text">
+              <span class="mention">@JARVIS</span> 포트폴리오 about 글 어제 고쳐둔 거 라이브에 반영하고, 에이전트 숫자도 맞는지 확인해줘
+            </div>
+          </div>
+        </div>
+
+        <!-- 양방향: 자비스 응답 -->
+        <div class="msg">
+          <div class="ava bot">J</div>
+          <div class="body">
+            <div class="row1"><span class="who">JARVIS</span><span class="app">앱</span><span class="time">오전 9:33</span></div>
+            <div class="text">
+              about 글 새 버전으로 배포 완료했어요 — 라이브에서 확인했습니다. ✅<br>
+              에이전트 수는 실측해보니 <span class="b">27 → 29개</span>로 늘어서, 사이트 4군데 전부 29로 통일했어요.<br>
+              <div class="bullet">방금 라이브(jungmo-dev.vercel.app)에서 직접 확인 — 정상 반영.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 저녁 자동 정리 -->
+        <div class="msg">
+          <div class="ava bot">J</div>
+          <div class="body">
+            <div class="row1"><span class="who">JARVIS</span><span class="app">자동</span><span class="time">오후 9:00</span></div>
+            <div class="text">
+              🌙 오늘 마무리 정리 — 5월 30일<br>
+              <div class="bullet">• <span class="b">포트폴리오</span></div>
+              <div class="bullet sub">◦ 코드 변경: about 소개 글 + 에이전트 수(29) 갱신</div>
+              <div class="bullet">• <span class="b">Ohajo</span></div>
+              <div class="bullet sub">◦ 코드 변경: 매칭 미결제 SMS fallback + CI 복구</div>
+              오늘 2개 프로젝트에서 작업하셨어요. 수고하셨어요, 정모님.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
