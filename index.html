@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="이정모 | AI Builder & Problem Solver — AI 멀티에이전트로 풀스택 앱, 자동화 시스템, 운영 인프라를 직접 만드는 사람" />
   <meta property="og:title" content="이정모 | AI Builder & Problem Solver 2026" />
-  <meta property="og:description" content="비개발자지만 AI로 프로덕션에 배포합니다. ohajo, claude-nexus, tiktok-automation, memex — 문제를 정의하고 AI로 해결합니다." />
+  <meta property="og:description" content="비개발자지만 AI로 프로덕션에 배포합니다. ohajo, JARVIS, tiktok-automation, memex — 문제를 정의하고 AI로 해결합니다." />
   <meta property="og:type" content="website" />
   <title>이정모 | AI Builder & Problem Solver</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -237,7 +237,7 @@
               <p class="code-line"><span class="key">problem</span><span class="comment"> = </span><span class="val">"비개발자지만, AI로 프로덕션에 배포합니다"</span></p>
               <p class="code-line"><span class="key">stack</span><span class="comment"> = </span><span class="val">"Claude Code 멀티에이전트 + Next.js + Python"</span></p>
               <p class="code-line"><span class="key">role</span><span class="comment"> = </span><span class="val">"코드는 AI에게, 문제 정의와 판단은 제가"</span></p>
-              <p class="code-line"><span class="key">shipped</span><span class="comment"> = </span><span class="val">["ohajo", "claude-nexus", "tiktok-automation", "memex"]</span></p>
+              <p class="code-line"><span class="key">shipped</span><span class="comment"> = </span><span class="val">["ohajo", "JARVIS", "tiktok-automation", "memex"]</span></p>
             </div>
           </div>
         </div>
@@ -499,7 +499,7 @@
         </div>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
           <span class="label w-full sm:w-40 shrink-0">하네스 엔지니어링</span>
-          <button onclick="showProject('nexus')" class="project-tab text-xs text-muted" data-project="nexus">claude-nexus</button>
+          <button onclick="showProject('nexus')" class="project-tab text-xs text-muted" data-project="nexus">JARVIS</button>
         </div>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
           <span class="label w-full sm:w-40 shrink-0">앱 개발</span>
@@ -580,10 +580,13 @@
           <span class="mono text-xs text-paper bg-accent px-2.5 py-1">[ai-builder]</span>
           <span class="text-xs mono text-muted border border-line px-2.5 py-1">개인 프로젝트 &middot; 2026.04 ~ 진행 중</span>
         </div>
-        <h3 class="text-2xl sm:text-3xl font-bold mb-4">claude-nexus &mdash; AI 멀티에이전트 운영 대시보드</h3>
+        <h3 class="text-2xl sm:text-3xl font-bold mb-2">JARVIS &mdash; 나만의 AI 운영 시스템</h3>
+        <p class="mono text-xs text-muted mb-6">claude-nexus &middot; 비개발자가 직접 만들어 매일 쓰는 AI 비서</p>
         <p class="text-muted leading-relaxed mb-8 max-w-2xl">
-          29개+ AI 에이전트와 38개+ 자동화 툴이 분산된 환경을 한 화면에서 운영하기 위해 직접 만든
-          <span class="text-soft font-medium">로컬 운영 인프라</span>. AI 자기평가 오류를 차단하는 규칙 기반 검증 루프를 내장합니다.
+          29개+ AI 에이전트와 38개+ 자동화 툴을 직접 설계해 매일 운영하는 AI 비서.
+          <span class="text-soft font-medium">한눈에 보는 대시보드</span>로 전체를 파악하고,
+          <span class="text-soft font-medium">슬랙으로 매일 보고받고 대화</span>합니다.
+          AI 자기평가 오류를 차단하는 규칙 기반 검증 루프를 내장했습니다.
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
@@ -602,22 +605,26 @@
           </ul>
         </div>
 
-        <p class="label mb-3">$ ls screenshots/claude-nexus/</p>
-        <div class="grid grid-cols-1 gap-4 mb-4">
+        <p class="label mb-3">① 대시보드 &mdash; 한눈에 보기</p>
+        <div class="grid grid-cols-1 gap-4 mb-8">
           <div class="img-card overflow-hidden border border-line bg-white max-w-3xl">
-            <div class="ratio-desktop"><img src="assets/projects/claude-nexus/01-dashboard.png" alt="nexus 시스템 개요 대시보드" loading="lazy" /></div>
+            <div class="ratio-desktop"><img src="assets/projects/claude-nexus/01-dashboard.png" alt="JARVIS 시스템 개요 대시보드" loading="lazy" /></div>
             <span class="img-zoom-hint">⤢</span>
-            <div class="p-3 mono text-xs text-muted img-caption">시스템 개요 대시보드 (에이전트 31 / 스킬 20 / 훅 34 / 규칙 41)</div>
+            <div class="p-3 mono text-xs text-muted img-caption">시스템 개요 대시보드 — 에이전트 / 스킬 / 훅 / 규칙을 한 화면에서</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white max-w-3xl">
-            <div class="ratio-wide"><img src="assets/projects/claude-nexus/02-templates.png" alt="nexus 템플릿 페이지" loading="lazy" /></div>
+            <div class="ratio-wide"><img src="assets/projects/claude-nexus/02-templates.png" alt="JARVIS 프로젝트 템플릿 페이지" loading="lazy" /></div>
             <span class="img-zoom-hint">⤢</span>
             <div class="p-3 mono text-xs text-muted img-caption">프로젝트 템플릿 — 데이터 분석 / 스킬 개발 / 웹앱</div>
           </div>
+        </div>
+
+        <p class="label mb-3">② 슬랙 운영 &mdash; 매일 소통</p>
+        <div class="grid grid-cols-1 gap-4 mb-4">
           <div class="img-card overflow-hidden max-w-3xl" style="border:1px solid #2c2f36;background:#1b1d21">
             <div class="ratio-desktop" style="background:#1b1d21"><img src="assets/projects/claude-nexus/03-jarvis-slack.png" alt="JARVIS 슬랙 운영 — 매일 자동 브리핑 + 양방향 AI 비서" loading="lazy" /></div>
             <span class="img-zoom-hint">⤢</span>
-            <div class="p-3 mono text-xs" style="color:#9aa0a6;background:#1b1d21;border-top:1px solid #2c2f36">JARVIS 슬랙 운영 — 매일 아침·저녁 프로젝트 현황 자동 브리핑 + <span style="color:#4ab06a">@JARVIS</span> 양방향 비서 <span style="color:#6b6f76">(소켓 모드 · 추가 비용 0)</span></div>
+            <div class="p-3 mono text-xs" style="color:#9aa0a6;background:#1b1d21;border-top:1px solid #2c2f36">매일 아침·저녁 프로젝트 현황 자동 브리핑 + <span style="color:#4ab06a">@JARVIS</span> 부르면 답하는 양방향 비서 <span style="color:#6b6f76">(소켓 모드 · 추가 비용 0)</span></div>
           </div>
         </div>
         <div class="hidden sm:block mb-10"></div>
@@ -714,8 +721,8 @@
         </div>
         <h3 class="text-2xl sm:text-3xl font-bold mb-4">memex &mdash; AI 시대의 통합 SNS</h3>
         <p class="text-muted leading-relaxed mb-8 max-w-2xl">
-          <span class="text-soft font-medium">&ldquo;노션의 에디터 + 인스타의 시각 + AI 비서&rdquo;</span>가 결합된 새로운 통합 SNS.
-          한 사람의 모든 형식(글/사진/영상/코드/차트)을 한 곳에서 표현하는 플랫폼을 설계 중입니다.
+          흩어진 내 모든 매체(글·사진·영상·코드)를 한 곳에 모으고, <span class="text-soft font-medium">내 프롬프트로 원하는 형태로 변환</span>해 표현하는 통합 SNS.
+          통합 채널은 Memex가, 변환·브랜딩의 주도권은 온전히 사용자가 &mdash; AI는 형태를 대신 정하지 않는 &lsquo;내 손의 붓&rsquo;입니다.
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
@@ -729,7 +736,7 @@
           <ul class="text-sm text-muted space-y-2">
             <li><span class="text-soft font-medium">문제:</span> 매체가 흩어져 있어 한 사람의 모든 표현이 분산 (YouTube/Instagram/X/블로그&hellip;)</li>
             <li><span class="text-soft font-medium">판단:</span> 1945년 Vannevar Bush의 Memex 비전을 AI 시대에 처음 가능해진 형태로 구현</li>
-            <li><span class="text-soft font-medium">AI 활용:</span> 생각만 입력하면 AI가 완성된 콘텐츠 패키지(글+이미지+영상)를 생성</li>
+            <li><span class="text-soft font-medium">AI 활용:</span> 강한 매체 하나만 올리면, 내 프롬프트로 약한 매체까지 원하는 형태로 직접 변환 (AI는 붓일 뿐, 콘텐츠 형태는 사용자가 결정)</li>
             <li><span class="text-soft font-medium">내 역할:</span> 제품 비전 정립, PRD 작성, 경쟁사 분석, 아키텍처 설계, 마켓 우선순위(KR &rarr; 글로벌) 결정</li>
           </ul>
         </div>
@@ -739,7 +746,7 @@
           <p class="text-ink leading-relaxed mb-2 mono">
             &ldquo;AI는 정보를 한 번에 다 수집하는데, 사람만 흩어져서 본다.&rdquo;
           </p>
-          <p class="text-sm text-muted">&mdash; AI 시대에 처음으로 가능해진 통합 표현 플랫폼</p>
+          <p class="text-sm text-muted">&mdash; 통합은 플랫폼이, 변환·브랜딩 주도권은 사용자가 (2026-05 핵심 원칙 전환)</p>
         </div>
 
         <h4 class="font-semibold mb-4">라이브 데모 &mdash; AI 변환 &rarr; 게시</h4>
