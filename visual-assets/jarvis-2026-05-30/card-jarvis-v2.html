@@ -11,23 +11,21 @@
   :root {
     --bg: #FAFAF9;
     --surface: #FFFFFF;
-    --surface-2: #F5F5F4;
     --line: #E5E5E5;
     --amber: #FF8700;
     --amber-text: #C96A00;
     --amber-soft: #FFF1E0;
     --scarlet: #C8102E;
-    --scarlet-deep: #AF0000;
     --scarlet-soft: #FCEAEC;
     --ink: #14161B;
-    --muted: #6B7280;
-    --faint: #9AA0AC;
+    --muted: #667085;
+    --faint: #98A2B3;
   }
 
   html, body { height: 100%; }
   body {
     width: 1080px;
-    height: 100vh;
+    height: 1080px;
     overflow: hidden;
     font-family: 'Noto Sans KR', sans-serif;
     background: var(--bg);
@@ -36,156 +34,237 @@
       linear-gradient(to bottom, rgba(0,0,0,0.022) 1px, transparent 1px);
     background-size: 48px 48px;
     color: var(--ink);
-    padding: 96px 84px;
+    padding: 42px 68px 44px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
   .mono { font-family: 'JetBrains Mono', monospace; }
 
-  .head { display: flex; align-items: center; gap: 16px; margin-bottom: 50px; }
-  .jarvis-mark {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 38px; font-weight: 700; color: var(--amber-text);
-    display: flex; align-items: center; gap: 12px;
+  /* 헤더 */
+  .head { display: flex; align-items: center; gap: 16px; }
+  .brand-mark {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 16px rgba(255,135,0,0.35);
   }
-  .jarvis-mark .dia { font-size: 32px; color: var(--amber); }
-  .head .sys { font-size: 28px; color: var(--muted); font-weight: 500; }
+  .brand-mark svg { width: 30px; height: 30px; stroke: #fff; stroke-width: 2.2; fill: none; }
+  .brand-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px; font-weight: 700; color: var(--amber-text); letter-spacing: -0.01em;
+  }
+  .head .sys { font-size: 22px; color: var(--muted); font-weight: 500; }
   .head .tag {
     margin-left: auto;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 22px; color: var(--amber-text); font-weight: 600;
+    font-size: 20px; color: var(--amber-text); font-weight: 600;
     border: 1px solid var(--amber); border-radius: 999px;
-    padding: 10px 22px;
+    padding: 8px 18px;
   }
 
-  .headline { font-size: 82px; font-weight: 800; line-height: 1.24; letter-spacing: -0.025em; margin-bottom: 24px; }
+  /* 히어로 2단 — 왼쪽 텍스트 + 오른쪽 에이전트 검증 루프 비주얼 */
+  .hero { display: grid; grid-template-columns: 1.32fr 0.86fr; gap: 44px; align-items: center; }
+  .headline { font-size: 50px; font-weight: 800; line-height: 1.24; letter-spacing: -0.025em; }
   .headline .a { color: var(--amber-text); }
   .headline .w { color: var(--scarlet); }
-  .sub { font-size: 30px; color: var(--muted); font-weight: 500; line-height: 1.55; }
+  .sub { font-size: 22px; color: var(--muted); font-weight: 500; line-height: 1.5; margin-top: 16px; }
 
-  /* 가운데 영역 — flex:1로 남은 세로 공간 흡수 */
-  .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 54px; }
+  /* 오른쪽 에이전트 루프 비주얼 박스 */
+  .loop-viz {
+    height: 240px;
+    background: linear-gradient(155deg, #FF9A20 0%, #C96A00 100%);
+    border-radius: 36px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+    box-shadow: 0 22px 50px rgba(255,135,0,0.32);
+    position: relative; overflow: hidden;
+    padding: 28px 20px;
+  }
+  .loop-viz::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .lv-agent {
+    width: 100%;
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.45);
+    border-radius: 16px;
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 14px;
+    position: relative; z-index: 1;
+  }
+  .lv-dot {
+    width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+  }
+  .lv-dot.amber { background: #FFD580; }
+  .lv-dot.scarlet { background: #FF8A9A; }
+  .lv-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; font-weight: 700; color: #fff;
+  }
+  .lv-sub { font-size: 17px; color: rgba(255,255,255,0.75); margin-left: auto; font-weight: 500; }
+  .lv-arrow {
+    position: relative; z-index: 1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px; color: rgba(255,255,255,0.7);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .lv-loop-label {
+    position: relative; z-index: 1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px; color: rgba(255,255,255,0.6);
+    letter-spacing: 0.04em;
+  }
 
-  .duo { display: flex; gap: 28px; }
+  /* 페르소나 2카드 */
+  .duo { display: flex; gap: 22px; }
   .persona {
     flex: 1;
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 24px;
-    padding: 46px 40px;
+    border-radius: 22px;
+    padding: 22px 26px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(20,22,27,0.05);
+    box-shadow: 0 4px 14px rgba(20,22,27,0.05);
   }
   .persona::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
   }
   .persona.j::before { background: var(--amber); }
   .persona.w::before { background: var(--scarlet); }
 
   .p-ico {
-    width: 76px; height: 76px; border-radius: 18px;
+    width: 52px; height: 52px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 28px;
+    margin-bottom: 14px;
   }
   .persona.j .p-ico { background: var(--amber-soft); }
   .persona.w .p-ico { background: var(--scarlet-soft); }
-  .p-ico svg { width: 40px; height: 40px; stroke-width: 2; fill: none; }
+  .p-ico svg { width: 28px; height: 28px; stroke-width: 2; fill: none; }
   .persona.j .p-ico svg { stroke: var(--amber-text); }
   .persona.w .p-ico svg { stroke: var(--scarlet); }
 
-  .p-name { font-family: 'JetBrains Mono', monospace; font-size: 34px; font-weight: 700; margin-bottom: 8px; }
+  .p-name { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700; margin-bottom: 5px; }
   .persona.j .p-name { color: var(--amber-text); }
   .persona.w .p-name { color: var(--scarlet); }
-  .p-role { font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 16px; }
-  .p-desc { font-size: 25px; color: var(--muted); line-height: 1.5; }
-  .p-when {
-    margin-top: 24px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 21px; color: var(--faint);
-  }
+  .p-role { font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .p-desc { font-size: 20px; color: var(--muted); line-height: 1.45; }
 
-  .loop {
-    display: flex; align-items: center; justify-content: center; gap: 16px;
-    font-family: 'JetBrains Mono', monospace; font-size: 26px; color: var(--muted);
+  /* 인용 + 지표 가로 스트립 */
+  .bottom-strip {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 22px 28px;
+    display: flex; align-items: center; gap: 40px;
+    box-shadow: 0 4px 14px rgba(20,22,27,0.04);
   }
-  .loop .gen { color: var(--amber-text); font-weight: 600; }
-  .loop .eval { color: var(--scarlet); font-weight: 600; }
-  .loop .ar { color: var(--faint); }
-
-  .quote {
+  .quote-block {
+    flex: 1;
     border-left: 4px solid var(--scarlet);
-    padding: 12px 0 12px 32px;
+    padding-left: 24px;
   }
-  .quote .q { font-size: 33px; color: var(--ink); font-weight: 700; line-height: 1.5; margin-bottom: 12px; }
-  .quote .qs { font-size: 24px; color: var(--muted); line-height: 1.5; }
+  .quote-block .q { font-size: 24px; color: var(--ink); font-weight: 700; line-height: 1.5; margin-bottom: 7px; }
+  .quote-block .qs { font-size: 19px; color: var(--muted); line-height: 1.5; }
+  /* 지표 3개 가로 배치 */
+  .metrics {
+    display: flex; flex-direction: row; gap: 36px; flex-shrink: 0;
+  }
+  .metric { text-align: center; }
+  .metric .n { font-family: 'JetBrains Mono', monospace; font-size: 36px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .metric .n .plus { color: var(--amber); }
+  .metric .l { font-size: 18px; color: var(--muted); margin-top: 4px; white-space: nowrap; }
 
+  /* 푸터 */
   .footer {
     border-top: 1px solid var(--line);
-    padding-top: 38px;
+    padding-top: 20px;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .metrics { display: flex; gap: 46px; }
-  .metric .n { font-family: 'JetBrains Mono', monospace; font-size: 38px; font-weight: 700; color: var(--ink); }
-  .metric .n .plus { color: var(--amber); }
-  .metric .l { font-size: 21px; color: var(--muted); margin-top: 4px; }
-  .who { font-family: 'JetBrains Mono', monospace; font-size: 26px; color: var(--amber-text); font-weight: 600; }
+  .footer .stack { font-size: 22px; font-weight: 500; color: var(--muted); }
+  .footer .stack b { color: var(--ink); font-weight: 700; }
+  .footer .who2 { font-family: 'JetBrains Mono', monospace; font-size: 24px; color: var(--amber-text); font-weight: 600; }
 </style>
 </head>
 <body>
 
+  <!-- 상단 헤더 -->
   <div class="head">
-    <div class="jarvis-mark"><span class="dia">◆</span>JARVIS</div>
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24"><path d="M12 2l8 5v10l-8 5-8-5V7z"/><path d="M12 7v10"/></svg>
+    </div>
+    <div class="brand-name">JARVIS</div>
     <span class="sys">나만의 AI 운영 시스템</span>
     <span class="tag">claude-nexus</span>
   </div>
 
-  <div class="headline">
-    <span class="a">만드는 AI</span>를<br />
-    <span class="w">감시하는 AI</span>가 검수한다
+  <!-- 히어로: 왼쪽 텍스트 + 오른쪽 루프 비주얼 -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="headline">
+        <span class="a">만드는 AI</span>를<br />
+        <span class="w">감시하는 AI</span>가<br />검수한다
+      </div>
+      <div class="sub">AI가 자기 결과를 자기가 평가하면<br />늘 "잘했다"고 한다. 그 편향을<br />끊으려고 평가자를 분리했다.</div>
+    </div>
+    <div class="loop-viz">
+      <div class="lv-agent">
+        <div class="lv-dot amber"></div>
+        <div class="lv-label">◆ JARVIS</div>
+        <div class="lv-sub">Generator</div>
+      </div>
+      <div class="lv-arrow">↓ 생성 &nbsp;→&nbsp; 검수 ↑</div>
+      <div class="lv-agent">
+        <div class="lv-dot scarlet"></div>
+        <div class="lv-label">WANDA</div>
+        <div class="lv-sub">Evaluator</div>
+      </div>
+      <div class="lv-loop-label">Generator ↔ Evaluator Loop</div>
+    </div>
   </div>
-  <div class="sub">AI가 자기 결과를 자기가 평가하면 늘 "잘했다"고 한다.<br />그 편향을 끊으려고 평가자를 분리했다.</div>
 
-  <div class="mid">
-    <div class="duo">
-      <div class="persona j">
-        <div class="p-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 2l8 5v10l-8 5-8-5V7z"/><path d="M12 7v10M8 9.5v5M16 9.5v5"/></svg>
-        </div>
-        <div class="p-name">◆ JARVIS</div>
-        <div class="p-role">생성자 · Generator</div>
-        <div class="p-desc">비전의 영혼. 코드를 만들고 일을 실행한다.</div>
-        <div class="p-when">// amber · 매 순간 일한다</div>
+  <!-- 페르소나 2카드 -->
+  <div class="duo">
+    <div class="persona j">
+      <div class="p-ico">
+        <svg viewBox="0 0 24 24"><path d="M12 2l8 5v10l-8 5-8-5V7z"/><path d="M12 7v10M8 9.5v5M16 9.5v5"/></svg>
       </div>
-
-      <div class="persona w">
-        <div class="p-ico">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v3l2 2"/></svg>
-        </div>
-        <div class="p-name">WANDA</div>
-        <div class="p-role">평가자 · Evaluator</div>
-        <div class="p-desc">외부 시선. 자비스 응답을 가차 없이 채점한다.</div>
-        <div class="p-when">// scarlet · 검수할 때만</div>
-      </div>
+      <div class="p-name">◆ JARVIS</div>
+      <div class="p-role">생성자 · Generator</div>
+      <div class="p-desc">비전의 영혼. 코드를 만들고 일을 실행한다.</div>
     </div>
 
-    <div class="loop">
-      <span class="gen">JARVIS 생성</span><span class="ar">→</span><span class="eval">WANDA 검수</span><span class="ar">→</span><span>다시 JARVIS</span>
+    <div class="persona w">
+      <div class="p-ico">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v3l2 2"/></svg>
+      </div>
+      <div class="p-name">WANDA</div>
+      <div class="p-role">평가자 · Evaluator</div>
+      <div class="p-desc">외부 시선. JARVIS 응답을 가차 없이 채점한다.</div>
     </div>
+  </div>
 
-    <div class="quote">
+  <!-- 인용 + 지표 -->
+  <div class="bottom-strip">
+    <div class="quote-block">
       <div class="q">"비전을 가장 사랑하면서, 동시에 가장 객관적으로 본다."</div>
-      <div class="qs">— 완다는 학습하지 않는다. 그래서 자기평가 편향이 끼어들 틈이 없다.</div>
+      <div class="qs">완다는 학습하지 않는다. 그래서 자기평가 편향이 끼어들 틈이 없다.</div>
     </div>
-  </div>
-
-  <div class="footer">
     <div class="metrics">
       <div class="metric"><div class="n">29<span class="plus">+</span></div><div class="l">AI 에이전트</div></div>
       <div class="metric"><div class="n">38<span class="plus">+</span></div><div class="l">자동화 툴</div></div>
       <div class="metric"><div class="n">100%</div><div class="l">로컬 · 무료</div></div>
     </div>
-    <div class="who">AI Builder · jungmo</div>
+  </div>
+
+  <!-- 푸터 -->
+  <div class="footer">
+    <div class="stack">AI 에이전트 운영 설계 · Generator-Evaluator 분리 &nbsp;·&nbsp; <b>Claude API · Node.js · Playwright</b></div>
+    <div class="who2">AI Builder · jungmo</div>
   </div>
 
 </body>

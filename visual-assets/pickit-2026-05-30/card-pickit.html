@@ -12,7 +12,7 @@
     --bg: #FAFAF9;
     --surface: #FFFFFF;
     --line: #E5E5E5;
-    --pink: #FF4D6D;        /* pick-it 코랄 핑크 — 앱 액센트 */
+    --pink: #FF4D6D;
     --pink-deep: #E0334F;
     --pink-soft: #FFE9EE;
     --ink: #1A1A22;
@@ -23,7 +23,7 @@
   html, body { height: 100%; }
   body {
     width: 1080px;
-    height: 100vh;
+    height: 1080px;
     overflow: hidden;
     font-family: 'Noto Sans KR', sans-serif;
     background: var(--bg);
@@ -32,13 +32,15 @@
       linear-gradient(to bottom, rgba(0,0,0,0.022) 1px, transparent 1px);
     background-size: 48px 48px;
     color: var(--ink);
-    padding: 96px 84px;
+    padding: 58px 72px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
   .mono { font-family: 'JetBrains Mono', monospace; }
 
-  .head { display: flex; align-items: center; gap: 16px; margin-bottom: 50px; }
+  /* 헤더 */
+  .head { display: flex; align-items: center; gap: 16px; }
   .brand-mark {
     width: 56px; height: 56px; border-radius: 16px;
     background: var(--pink);
@@ -46,8 +48,11 @@
     box-shadow: 0 6px 16px rgba(255,77,109,0.32);
   }
   .brand-mark svg { width: 30px; height: 30px; stroke: #fff; stroke-width: 2.2; fill: none; }
-  .brand-name { font-size: 36px; font-weight: 800; color: var(--pink-deep); letter-spacing: -0.01em; }
-  .head .sys { font-size: 27px; color: var(--muted); font-weight: 500; }
+  .brand-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 33px; font-weight: 700; color: var(--pink-deep); letter-spacing: -0.01em;
+  }
+  .head .sys { font-size: 26px; color: var(--muted); font-weight: 500; }
   .head .tag {
     margin-left: auto;
     font-family: 'JetBrains Mono', monospace;
@@ -56,43 +61,127 @@
     padding: 10px 22px;
   }
 
-  .headline { font-size: 78px; font-weight: 800; line-height: 1.22; letter-spacing: -0.025em; margin-bottom: 24px; }
+  /* 히어로 2단 — 왼쪽 텍스트 + 오른쪽 게임 비주얼 */
+  .hero { display: grid; grid-template-columns: 1.32fr 0.86fr; gap: 48px; align-items: center; }
+  .headline { font-size: 62px; font-weight: 800; line-height: 1.24; letter-spacing: -0.025em; }
   .headline .hl { color: var(--pink-deep); }
-  .sub { font-size: 30px; color: var(--muted); font-weight: 500; line-height: 1.55; }
+  .sub { font-size: 27px; color: var(--muted); font-weight: 500; line-height: 1.55; margin-top: 20px; }
 
-  .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+  /* 오른쪽 게임 비주얼 박스 */
+  .game-box {
+    height: 340px;
+    background: linear-gradient(155deg, #FF4D6D 0%, #B5183A 100%);
+    border-radius: 36px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+    box-shadow: 0 22px 50px rgba(255,77,109,0.32);
+    position: relative; overflow: hidden;
+    padding: 28px;
+  }
+  .game-box::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  /* 방 코드 칩 */
+  .room-code {
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.5);
+    border-radius: 16px;
+    padding: 14px 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 38px; font-weight: 700; color: #fff;
+    letter-spacing: 0.12em;
+    position: relative; z-index: 1;
+  }
+  .room-label {
+    font-size: 20px; color: rgba(255,255,255,0.75); font-weight: 500;
+    position: relative; z-index: 1;
+  }
+  /* 카운트다운 + 지목 영역 */
+  .game-row {
+    display: flex; gap: 14px; width: 100%;
+    position: relative; z-index: 1;
+  }
+  .vote-card {
+    flex: 1; background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 14px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .vote-card .vc-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px; font-weight: 700; color: #fff; line-height: 1;
+  }
+  .vote-card .vc-label {
+    font-size: 17px; color: rgba(255,255,255,0.75); margin-top: 5px;
+  }
+  .countdown-card {
+    background: rgba(255,255,255,0.22);
+    border: 1.5px solid rgba(255,255,255,0.55);
+    border-radius: 14px;
+    padding: 14px 18px;
+    text-align: center; min-width: 80px;
+  }
+  .countdown-card .cd-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 42px; font-weight: 700; color: #fff; line-height: 1;
+  }
+  .countdown-card .cd-label {
+    font-size: 17px; color: rgba(255,255,255,0.8); margin-top: 4px;
+  }
 
-  .step {
-    display: flex; align-items: center; gap: 26px;
+  /* 게임 플로우 가로 단계 */
+  .pipe {
+    display: flex; align-items: stretch; gap: 0;
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 26px 32px;
-    box-shadow: 0 4px 14px rgba(26,26,34,0.04);
+    border-radius: 24px;
+    padding: 18px;
+    box-shadow: 0 6px 20px rgba(20,22,27,0.05);
   }
-  .step .num {
-    width: 58px; height: 58px; flex-shrink: 0;
-    border-radius: 16px;
-    background: var(--pink); color: #fff;
-    font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700;
+  .pipe .stage { flex: 1; text-align: center; padding: 22px 12px; }
+  .pipe .n { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--pink); font-weight: 700; margin-bottom: 11px; }
+  .pipe .si {
+    width: 54px; height: 54px; margin: 0 auto 12px;
+    border-radius: 15px; background: var(--pink-soft);
     display: flex; align-items: center; justify-content: center;
   }
-  .step .t { font-size: 31px; font-weight: 800; color: var(--ink); }
-  .step .t .hl { color: var(--pink-deep); }
-  .step .d { font-size: 23px; color: var(--muted); margin-top: 2px; }
+  .pipe .si svg { width: 30px; height: 30px; stroke: var(--pink-deep); stroke-width: 2; fill: none; }
+  .pipe .t { font-size: 27px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+  .pipe .d { font-size: 20px; color: var(--muted); }
+  .pipe .arrow { display: flex; align-items: center; color: var(--pink); font-family: 'JetBrains Mono', monospace; font-size: 30px; }
 
+  /* 특징 3카드 */
+  .feats { display: flex; gap: 22px; }
+  .feat {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 26px 28px;
+    box-shadow: 0 4px 14px rgba(26,26,34,0.04);
+  }
+  .feat .big { font-family: 'JetBrains Mono', monospace; font-size: 42px; font-weight: 700; color: var(--pink-deep); line-height: 1; margin-bottom: 10px; }
+  .feat .ft { font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+  .feat .fd { font-size: 20px; color: var(--muted); line-height: 1.45; }
+
+  /* 푸터 */
   .footer {
     border-top: 1px solid var(--line);
-    padding-top: 34px;
-    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 28px;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
   }
-  .footer .stack { font-size: 23px; font-weight: 500; color: var(--muted); }
+  .footer .stack { font-size: 21px; font-weight: 500; color: var(--muted); line-height: 1.5; }
   .footer .stack b { color: var(--ink); font-weight: 700; }
-  .footer .who2 { font-family: 'JetBrains Mono', monospace; font-size: 24px; color: var(--pink-deep); font-weight: 600; }
+  .footer .who2 { font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--pink-deep); font-weight: 600; white-space: nowrap; flex-shrink: 0; }
 </style>
 </head>
 <body>
 
+  <!-- 헤더: 브랜드 마크 + 이름 + 설명 + 태그 -->
   <div class="head">
     <div class="brand-mark">
       <svg viewBox="0 0 24 24"><path d="M9 11V6a2 2 0 0 1 4 0v5"/><path d="M13 11V8a2 2 0 0 1 4 0v3"/><path d="M17 11.5a2 2 0 0 1 4 0V16a6 6 0 0 1-6 6h-2a7 7 0 0 1-5-2l-4-4a2 2 0 0 1 3-3l2 2V6a2 2 0 0 1 4 0v5"/></svg>
@@ -102,33 +191,97 @@
     <span class="tag">App Store</span>
   </div>
 
-  <div class="headline">
-    오늘 술자리,<br />
-    <span class="hl">폰 하나로</span> 픽잇
+  <!-- 히어로: 왼쪽 텍스트 + 오른쪽 게임 화면 비주얼 -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="headline">
+        오늘 술자리,<br />
+        <span class="hl">폰 하나로</span> 픽잇
+      </div>
+      <div class="sub">방 코드로 친구들이 모여 질문에 답하고,<br />서로를 지목하는 실시간 멀티플레이 게임.</div>
+    </div>
+    <!-- 게임 화면 비주얼 박스 -->
+    <div class="game-box">
+      <div class="room-label">입장 코드</div>
+      <div class="room-code">A7K3</div>
+      <div class="game-row">
+        <div class="vote-card">
+          <div class="vc-num">6명</div>
+          <div class="vc-label">참가 중</div>
+        </div>
+        <div class="countdown-card">
+          <div class="cd-num">10</div>
+          <div class="cd-label">초</div>
+        </div>
+        <div class="vote-card">
+          <div class="vc-num">3표</div>
+          <div class="vc-label">최다 지목</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="sub">방 코드로 친구들이 모여 질문에 답하고,<br />서로를 지목하는 실시간 멀티플레이 게임.</div>
 
-  <div class="mid">
-    <div class="step">
-      <div class="num">1</div>
-      <div><div class="t">방장이 <span class="hl">4자리 코드</span> 공유</div><div class="d">방 만들기 한 번이면 끝</div></div>
+  <!-- 게임 진행 4단계 파이프라인 -->
+  <div class="pipe">
+    <div class="stage">
+      <div class="n">01</div>
+      <div class="si">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg>
+      </div>
+      <div class="t">방 만들기</div>
+      <div class="d">코드 생성</div>
     </div>
-    <div class="step">
-      <div class="num">2</div>
-      <div><div class="t">친구들이 코드 입력해 입장</div><div class="d">4~8명, 닉네임만 적으면 시작</div></div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <div class="n">02</div>
+      <div class="si">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="t">친구 입장</div>
+      <div class="d">코드 입력</div>
     </div>
-    <div class="step">
-      <div class="num">3</div>
-      <div><div class="t">질문 등장 → <span class="hl">10초 안에 지목</span></div><div class="d">각자 폰에서 한 명 콕</div></div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <div class="n">03</div>
+      <div class="si">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="t">10초 지목</div>
+      <div class="d">빠른 투표</div>
     </div>
-    <div class="step">
-      <div class="num">4</div>
-      <div><div class="t">결과 발표 → 따당!</div><div class="d">실시간 득표 집계 + 다음 질문 자동</div></div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <div class="n">04</div>
+      <div class="si">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="t">결과 발표</div>
+      <div class="d">실시간 집계</div>
     </div>
   </div>
 
+  <!-- 특징 3카드 -->
+  <div class="feats">
+    <div class="feat">
+      <div class="big">4자리</div>
+      <div class="ft">방 입장 코드</div>
+      <div class="fd">설치 없이 코드만 입력</div>
+    </div>
+    <div class="feat">
+      <div class="big">10초</div>
+      <div class="ft">긴장감 카운트다운</div>
+      <div class="fd">빠른 지목, 즉각 집계</div>
+    </div>
+    <div class="feat">
+      <div class="big">실시간</div>
+      <div class="ft">Firebase 동기화</div>
+      <div class="fd">모든 폰이 동시에 반응</div>
+    </div>
+  </div>
+
+  <!-- 푸터: 기술 스택 + 앱 정보 -->
   <div class="footer">
-    <div class="stack">pick-quick → pick-it 재설계 &nbsp;·&nbsp; <b>React Native · Firebase · AdMob</b></div>
+    <div class="stack">pick-quick → pick-it 리브랜딩<br /><b>React Native · Firebase · AdMob</b></div>
     <div class="who2">App Store · "픽잇" 검색</div>
   </div>
 
