@@ -532,6 +532,7 @@
           <button onclick="showProject('balance')" class="project-tab text-xs text-muted" data-project="balance">전국밸런스</button>
           <button onclick="showProject('daily')" class="project-tab text-xs text-muted" data-project="daily">daily-viewer</button>
           <button onclick="showProject('excel')" class="project-tab text-xs text-muted" data-project="excel">엑셀 자동화</button>
+          <button onclick="showProject('lasttrain')" class="project-tab text-xs text-muted" data-project="lasttrain">막차탑승</button>
           <button onclick="showProject('memex')" class="project-tab text-xs text-muted" data-project="memex">memex</button>
           <button onclick="showProject('tiktok')" class="project-tab text-xs text-muted" data-project="tiktok">tiktok-automation</button>
         </div>
@@ -1070,6 +1071,50 @@
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">업무 자동화</span>
         </div>
         <p class="text-xs text-muted/70">크몽 &middot; 숨고 판매 중 (IT &middot; 프로그래밍 &gt; 업무 자동화)</p>
+      </div>
+
+      <!-- 막차 탑승 -->
+      <div id="project-lasttrain" class="project-content hidden">
+        <div class="mb-8 flex flex-wrap items-center gap-2">
+          <span class="mono text-xs text-paper bg-accent px-2.5 py-1">[ai-builder]</span>
+          <span class="text-xs mono text-muted border border-line px-2.5 py-1">개인 프로젝트 &middot; 2026.06 &middot; 개발 중</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">막차 탑승 &mdash; 한손 타이밍 게임</h3>
+        <p class="text-muted leading-relaxed mb-8 max-w-2xl">
+          닫히는 지하철 문에 타이밍을 맞춰 몸을 던지는 <span class="text-soft font-medium">원버튼 게임</span>(버튼 하나로만 조작).
+          서울 직장인의 막차 공포를 병맛 웃음으로 풀었습니다.
+          게임 3종 라인업의 두 번째 작품으로, 게임 캔버스를 Skia(2D 그래픽 엔진)로 직접 그려 개발 중입니다.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">원버튼</div><div class="text-xs text-muted mt-1">탭 타이밍 판정</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">2번째</div><div class="text-xs text-muted mt-1">게임 3종 라인업</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">Skia</div><div class="text-xs text-muted mt-1">게임 캔버스 직접 렌더</div></div>
+        </div>
+
+        <p class="label mb-3">$ ls screenshots/last-train/</p>
+        <div class="grid grid-cols-2 gap-4 mb-10 max-w-md">
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/lasttrain/home.png" alt="막차 탑승 홈" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">홈 &middot; 게임 시작</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/lasttrain/game.png" alt="막차 탑승 게임 플레이" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">게임 플레이 (지하철 문 + 캐릭터)</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Expo</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">React Native</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Skia</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Reanimated</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Zustand</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">TypeScript</span>
+        </div>
+        <p class="text-xs text-muted/70">게임 코어 개발 중 &middot; 게임 3종 라인업 2번째</p>
       </div>
 
       <!-- 에어비앤비 -->
