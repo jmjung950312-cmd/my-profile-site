@@ -530,6 +530,8 @@
           <button onclick="showProject('ohajo')" class="project-tab text-xs text-muted" data-project="ohajo">ohajo</button>
           <button onclick="showProject('pickit')" class="project-tab text-xs text-muted" data-project="pickit">pick-it</button>
           <button onclick="showProject('balance')" class="project-tab text-xs text-muted" data-project="balance">전국밸런스</button>
+          <button onclick="showProject('daily')" class="project-tab text-xs text-muted" data-project="daily">daily-viewer</button>
+          <button onclick="showProject('excel')" class="project-tab text-xs text-muted" data-project="excel">엑셀 자동화</button>
           <button onclick="showProject('memex')" class="project-tab text-xs text-muted" data-project="memex">memex</button>
           <button onclick="showProject('tiktok')" class="project-tab text-xs text-muted" data-project="tiktok">tiktok-automation</button>
         </div>
@@ -826,8 +828,29 @@
         </div>
         <p class="mono text-xs text-muted/70 mb-10"># memex.kr · 비공개 베타 · 본인 페이지 전용 발행</p>
 
+        <h4 class="font-semibold mb-4">네이티브 앱 (개발 중)</h4>
+        <div class="grid grid-cols-3 gap-4 mb-4">
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/memex/app-login.png" alt="memex 앱 로그인" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">로그인 (모든 SNS의 통합)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/memex/app-globe.png" alt="memex 앱 메모리 글로브" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">메모리 글로브 (기억 지구본)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/memex/app-post.png" alt="memex 앱 게시글" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">게시글 상세</div>
+          </div>
+        </div>
+        <p class="mono text-xs text-muted/70 mb-10"># Expo · React Native 네이티브 앱 — 웹과 같은 비전, 개발 중</p>
+
         <div class="flex flex-wrap gap-2 mb-6">
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Next.js</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Expo &middot; React Native</span>
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">AI Multimodal</span>
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Product Strategy</span>
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">PRD &middot; Architecture</span>
@@ -955,6 +978,103 @@
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">TypeScript</span>
         </div>
         <p class="text-xs text-muted/70">App Store 출시 완료 &middot; 무료 (광고 포함)</p>
+      </div>
+
+      <!-- daily-report-viewer -->
+      <div id="project-daily" class="project-content hidden">
+        <div class="mb-8 flex flex-wrap items-center gap-2">
+          <span class="mono text-xs text-paper bg-accent px-2.5 py-1">[ai-builder]</span>
+          <span class="text-xs mono text-muted border border-line px-2.5 py-1">개인 도구 &middot; 2026.05 &middot; 라이브 운영</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">daily-report-viewer &mdash; AI &middot; 주식 일일 보고서 뷰어</h3>
+        <p class="text-muted leading-relaxed mb-8 max-w-2xl">
+          매일 자동 생성되는 AI 동향 &middot; 주식 보고서를 한 화면에서 보는 도구.
+          두 GitHub 레포에 쌓이는 보고서를 <span class="text-soft font-medium">GitHub Contents API + ISR</span>(1시간마다 자동으로 새로 받아오는 방식)로 끌어와 렌더합니다.
+          매일 새 글이 올라오면 별도 작업 없이 화면에 반영됩니다.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">94건+</div><div class="text-xs text-muted mt-1">AI 49 &middot; 주식 45 누적</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">자동 갱신</div><div class="text-xs text-muted mt-1">GitHub API &middot; ISR</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">라이브</div><div class="text-xs text-muted mt-1">Vercel 배포 운영</div></div>
+        </div>
+
+        <p class="label mb-3">$ ls screenshots/daily-report-viewer/</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-wide"><img src="assets/projects/daily-report-viewer/home.png" alt="데일리 리포트 뷰어 홈" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">홈 (AI &middot; 주식 카드)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-wide"><img src="assets/projects/daily-report-viewer/list.png" alt="보고서 날짜별 리스트" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">날짜별 리스트</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-wide"><img src="assets/projects/daily-report-viewer/detail.png" alt="보고서 상세 렌더" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">보고서 상세 (마크다운)</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Next.js 15</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">React 19</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Tailwind CSS</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">react-markdown</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">GitHub API</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Vercel</span>
+        </div>
+        <p class="text-xs text-muted/70">
+          <a href="https://daily-report-viewer.vercel.app" target="_blank" rel="noopener" class="underline">daily-report-viewer.vercel.app</a> &middot; 라이브 운영 중
+        </p>
+      </div>
+
+      <!-- 엑셀 자동화 -->
+      <div id="project-excel" class="project-content hidden">
+        <div class="mb-8 flex flex-wrap items-center gap-2">
+          <span class="mono text-xs text-paper bg-accent px-2.5 py-1">[ai-builder]</span>
+          <span class="text-xs mono text-muted border border-line px-2.5 py-1">개인 도구 &middot; 2026.05 &middot; 크몽 &middot; 숨고 판매</span>
+        </div>
+        <div class="img-card overflow-hidden border-y sm:border border-line bg-white mb-8 -mx-6 sm:mx-0 sm:max-w-3xl">
+          <img src="assets/projects/excel-automation/main.jpg" alt="엑셀 자동화 소개" loading="lazy" class="w-full block" />
+          <span class="img-zoom-hint">⤢</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">엑셀 &middot; 구글시트 업무 자동화</h3>
+        <p class="text-muted leading-relaxed mb-8 max-w-2xl">
+          매월 반복하던 엑셀 취합 &middot; 요약 &middot; 순위 계산을 <span class="text-soft font-medium">버튼 한 번에 통합 보고서</span>로.
+          여러 파일을 폴더에 모아두면 Python 자동화가 통합 &middot; 월별 요약 &middot; 순위까지 1초에 만듭니다.
+          크몽 &middot; 숨고에서 판매 중인 업무 자동화 서비스의 첫 상품입니다.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">30분→1초</div><div class="text-xs text-muted mt-1">수작업 시간 제거</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">104건</div><div class="text-xs text-muted mt-1">자동 취합 거래</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">실수 0</div><div class="text-xs text-muted mt-1">사람 손 안 탐</div></div>
+        </div>
+
+        <p class="label mb-3">$ ls screenshots/excel-automation/</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-wide"><img src="assets/projects/excel-automation/detail-1.jpg" alt="자동화 서비스 범위" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">자동화 서비스 6종</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-wide"><img src="assets/projects/excel-automation/detail-2.jpg" alt="작업 진행 방식 &middot; 가격" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">작업 3단계 &middot; 가격</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Python</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">pandas</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">openpyxl</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">업무 자동화</span>
+        </div>
+        <p class="text-xs text-muted/70">크몽 &middot; 숨고 판매 중 (IT &middot; 프로그래밍 &gt; 업무 자동화)</p>
       </div>
 
       <!-- 에어비앤비 -->
