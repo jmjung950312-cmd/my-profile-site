@@ -529,6 +529,7 @@
           <span class="label w-full sm:w-40 shrink-0">앱 개발</span>
           <button onclick="showProject('ohajo')" class="project-tab text-xs text-muted" data-project="ohajo">ohajo</button>
           <button onclick="showProject('pickit')" class="project-tab text-xs text-muted" data-project="pickit">pick-it</button>
+          <button onclick="showProject('balance')" class="project-tab text-xs text-muted" data-project="balance">전국밸런스</button>
           <button onclick="showProject('memex')" class="project-tab text-xs text-muted" data-project="memex">memex</button>
           <button onclick="showProject('tiktok')" class="project-tab text-xs text-muted" data-project="tiktok">tiktok-automation</button>
         </div>
@@ -900,6 +901,60 @@
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">TypeScript</span>
         </div>
         <p class="text-xs text-muted/70">앱스토어 출시 준비 중</p>
+      </div>
+
+      <!-- 전국 밸런스 -->
+      <div id="project-balance" class="project-content hidden">
+        <div class="mb-8 flex flex-wrap items-center gap-2">
+          <span class="mono text-xs text-paper bg-accent px-2.5 py-1">[ai-builder]</span>
+          <span class="text-xs mono text-muted border border-line px-2.5 py-1">개인 프로젝트 &middot; 2026.06 &middot; App Store 출시</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">전국 밸런스 &mdash; 하루 3문제 밸런스 게임</h3>
+        <p class="text-muted leading-relaxed mb-8 max-w-2xl">
+          매일 자정 3개의 새 질문이 도착하고, A냐 B냐 투표하면 그 자리에서 <span class="text-soft font-medium">전국 선택 비율</span>이 공개되는 게임.
+          결과로 만들어지는 &ldquo;나는 소수파 N%&rdquo; 공유 카드로 바이럴 루프를 설계했습니다.
+          게임 3종 라인업의 첫 출시작으로, 기획부터 백엔드 &middot; 앱 &middot; App Store 등록까지 직접 만들었습니다.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">출시</div><div class="text-xs text-muted mt-1">App Store 등록 완료</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">매일 3문제</div><div class="text-xs text-muted mt-1">자정 갱신 &middot; 연속 스트릭</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">바이럴</div><div class="text-xs text-muted mt-1">소수파 % 공유 카드</div></div>
+        </div>
+
+        <p class="label mb-3">$ ls screenshots/balance/</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/balance/today.png" alt="전국밸런스 오늘의 질문" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">오늘의 질문 (A vs B)</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/balance/result.png" alt="전국밸런스 전국 비율" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">전국 비율 공개</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/balance/share.png" alt="전국밸런스 공유 카드" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">소수파 % 공유 카드</div>
+          </div>
+          <div class="img-card overflow-hidden border border-line bg-white">
+            <div class="ratio-mobile"><img src="assets/projects/balance/streak.png" alt="전국밸런스 연속 출석" loading="lazy" /></div>
+            <span class="img-zoom-hint">⤢</span>
+            <div class="p-3 mono text-xs text-muted img-caption">연속 출석 스트릭</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">React Native</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Expo</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Supabase</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Zustand</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">AdMob</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">TypeScript</span>
+        </div>
+        <p class="text-xs text-muted/70">App Store 출시 완료 &middot; 무료 (광고 포함)</p>
       </div>
 
       <!-- 에어비앤비 -->
