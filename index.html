@@ -262,7 +262,7 @@
               <p class="code-line"><span class="key">problem</span><span class="comment"> = </span><span class="val">"비개발자지만, AI로 프로덕션에 배포합니다"</span></p>
               <p class="code-line"><span class="key">stack</span><span class="comment"> = </span><span class="val">"Claude Code 멀티에이전트 + Next.js + Python"</span></p>
               <p class="code-line"><span class="key">role</span><span class="comment"> = </span><span class="val">"코드는 AI에게, 문제 정의와 판단은 제가"</span></p>
-              <p class="code-line"><span class="key">shipped</span><span class="comment"> = </span><span class="val">["ohajo", "JARVIS", "tiktok-automation", "memex", "pick-it"]</span></p>
+              <p class="code-line"><span class="key">shipped</span><span class="comment"> = </span><span class="val">["JARVIS", "ohajo", "memex", "pick-it", "tiktok-automation"]</span></p>
             </div>
           </div>
         </div>
@@ -519,10 +519,11 @@
       <!-- 프로젝트 탭 -->
       <div class="mb-6 border-b border-line pb-4 space-y-3">
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <span class="label w-full sm:w-40 shrink-0">데이터 분석</span>
-          <button onclick="showProject('airbnb')" class="project-tab text-xs text-muted active" data-project="airbnb">airbnb-analysis</button>
-          <button onclick="showProject('lending')" class="project-tab text-xs text-muted" data-project="lending">lendingclub</button>
-          <button onclick="showProject('gms')" class="project-tab text-xs text-muted" data-project="gms">google-analytics</button>
+          <span class="label w-full sm:w-40 shrink-0">AI 자동화 · 시스템</span>
+          <button onclick="showProject('nexus')" class="project-tab text-xs text-muted active" data-project="nexus">JARVIS</button>
+          <button onclick="showProject('daily')" class="project-tab text-xs text-muted" data-project="daily">daily-viewer</button>
+          <button onclick="showProject('excel')" class="project-tab text-xs text-muted" data-project="excel">엑셀 자동화</button>
+          <button onclick="showProject('tiktok')" class="project-tab text-xs text-muted" data-project="tiktok">tiktok-automation</button>
         </div>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
           <span class="label w-full sm:w-40 shrink-0">앱 · 게임</span>
@@ -533,11 +534,10 @@
           <button onclick="showProject('memex')" class="project-tab text-xs text-muted" data-project="memex">memex</button>
         </div>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <span class="label w-full sm:w-40 shrink-0">AI 자동화 · 시스템</span>
-          <button onclick="showProject('nexus')" class="project-tab text-xs text-muted" data-project="nexus">JARVIS</button>
-          <button onclick="showProject('daily')" class="project-tab text-xs text-muted" data-project="daily">daily-viewer</button>
-          <button onclick="showProject('excel')" class="project-tab text-xs text-muted" data-project="excel">엑셀 자동화</button>
-          <button onclick="showProject('tiktok')" class="project-tab text-xs text-muted" data-project="tiktok">tiktok-automation</button>
+          <span class="label w-full sm:w-40 shrink-0">데이터 분석</span>
+          <button onclick="showProject('airbnb')" class="project-tab text-xs text-muted" data-project="airbnb">airbnb-analysis</button>
+          <button onclick="showProject('lending')" class="project-tab text-xs text-muted" data-project="lending">lendingclub</button>
+          <button onclick="showProject('gms')" class="project-tab text-xs text-muted" data-project="gms">google-analytics</button>
         </div>
       </div>
       <p class="mono text-xs text-muted mb-12">// &larr; ai-builder  |  data-analysis &rarr;</p>
@@ -610,7 +610,7 @@
       </div>
 
       <!-- claude-nexus -->
-      <div id="project-nexus" class="project-content hidden">
+      <div id="project-nexus" class="project-content">
         <div class="mb-8 flex flex-wrap items-center gap-2">
           <span class="mono text-xs text-paper bg-accent px-2.5 py-1">[ai-builder]</span>
           <span class="text-xs mono text-muted border border-line px-2.5 py-1">개인 프로젝트 &middot; 2026.04 ~ 진행 중</span>
@@ -1116,7 +1116,7 @@
       </div>
 
       <!-- 에어비앤비 -->
-      <div id="project-airbnb" class="project-content">
+      <div id="project-airbnb" class="project-content hidden">
         <div class="mb-8 flex flex-wrap items-center gap-2">
           <span class="mono text-xs text-muted border border-line px-2.5 py-1">[data-analysis]</span>
           <span class="text-xs mono text-muted border border-line px-2.5 py-1">팀 프로젝트 &middot; 2026.03</span>
