@@ -77,9 +77,9 @@
     .nav-link.active::after  { content: ']'; color: #1d4ed8; padding-left: 2px; }
 
     /* 프로젝트 서브탭 */
-    .project-tab { position: relative; cursor: pointer; font-family: 'JetBrains Mono', Menlo, Monaco, monospace; border-bottom: 1px dashed #d4d4d4; padding-bottom: 1px; transition: color .15s ease, border-color .15s ease; }
+    .project-tab { position: relative; cursor: pointer; border-bottom: 1px dashed #d4d4d4; padding-bottom: 1px; transition: color .15s ease, border-color .15s ease; }
     .project-tab:hover { color: #0a0a0a; border-bottom-color: #1d4ed8; }
-    .project-tab.active { color: #0a0a0a; font-weight: 600; border-bottom-color: transparent; }
+    .project-tab.active { color: #1d4ed8; font-weight: 600; border-bottom-color: transparent; }
     .project-tab.active::before { content: '▸ '; color: #1d4ed8; }
 
     /* 스킬바 */
@@ -233,6 +233,7 @@
         print-color-adjust: exact;
       }
       .page { display: none !important; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
       #page-resume { display: block !important; opacity: 1 !important; padding-top: 0 !important; }
       #page-resume section { padding: 0 !important; max-width: 100% !important; }
       .tech-card { border-color: #d4d4d4 !important; box-shadow: none !important; break-inside: avoid; }
@@ -721,38 +722,37 @@
   <div id="page-projects" class="page pt-14">
     <section class="max-w-5xl mx-auto px-6 sm:px-10 py-20 sm:py-28">
 
-      <p class="label mb-4">$ ls projects/</p>
-      <h2 class="text-3xl sm:text-4xl font-bold mb-3 mono">프로젝트</h2>
-      <p class="text-muted mb-4">AI로 실제 만든 것들, 그리고 데이터로 풀어낸 문제들.</p>
-      <p class="mono text-xs text-muted mb-12"># schema: problem &rarr; decision &rarr; ai_usage &rarr; role</p>
-
-      <p class="text-xs text-soft mb-4">↓ 카테고리별 프로젝트를 눌러 상세 화면을 펼쳐보세요</p>
+      <div data-reveal>
+        <p class="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">Projects</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">프로젝트</h2>
+        <p class="text-muted mb-2 max-w-2xl">AI로 실제 만든 것들, 그리고 데이터로 풀어낸 문제들.</p>
+        <p class="text-sm text-muted/70 mb-10">카테고리에서 프로젝트를 눌러 상세 화면을 펼쳐보세요.</p>
+      </div>
 
       <!-- 프로젝트 탭 -->
-      <div class="mb-6 border-b border-line pb-4 space-y-3">
+      <div class="mb-12 space-y-4 border-b border-line pb-8" data-reveal style="transition-delay:60ms">
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <span class="label w-full sm:w-40 shrink-0">AI 자동화 · 시스템</span>
-          <button onclick="showProject('nexus')" class="project-tab text-xs text-muted active" data-project="nexus">JARVIS</button>
-          <button onclick="showProject('daily')" class="project-tab text-xs text-muted" data-project="daily">daily-viewer</button>
-          <button onclick="showProject('excel')" class="project-tab text-xs text-muted" data-project="excel">엑셀 자동화</button>
-          <button onclick="showProject('tiktok')" class="project-tab text-xs text-muted" data-project="tiktok">tiktok-automation</button>
+          <span class="text-xs font-semibold tracking-[0.12em] text-muted uppercase w-full sm:w-36 shrink-0">AI 자동화 &middot; 시스템</span>
+          <button onclick="showProject('nexus')" class="project-tab text-sm text-muted active" data-project="nexus">JARVIS</button>
+          <button onclick="showProject('daily')" class="project-tab text-sm text-muted" data-project="daily">daily-viewer</button>
+          <button onclick="showProject('excel')" class="project-tab text-sm text-muted" data-project="excel">엑셀 자동화</button>
+          <button onclick="showProject('tiktok')" class="project-tab text-sm text-muted" data-project="tiktok">tiktok-automation</button>
         </div>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <span class="label w-full sm:w-40 shrink-0">앱 · 게임</span>
-          <button onclick="showProject('ohajo')" class="project-tab text-xs text-muted" data-project="ohajo">ohajo</button>
-          <button onclick="showProject('pickit')" class="project-tab text-xs text-muted" data-project="pickit">pick-it</button>
-          <button onclick="showProject('balance')" class="project-tab text-xs text-muted" data-project="balance">전국밸런스</button>
-          <button onclick="showProject('lasttrain')" class="project-tab text-xs text-muted" data-project="lasttrain">막차탑승</button>
-          <button onclick="showProject('memex')" class="project-tab text-xs text-muted" data-project="memex">memex</button>
+          <span class="text-xs font-semibold tracking-[0.12em] text-muted uppercase w-full sm:w-36 shrink-0">앱 &middot; 게임</span>
+          <button onclick="showProject('ohajo')" class="project-tab text-sm text-muted" data-project="ohajo">ohajo</button>
+          <button onclick="showProject('pickit')" class="project-tab text-sm text-muted" data-project="pickit">pick-it</button>
+          <button onclick="showProject('balance')" class="project-tab text-sm text-muted" data-project="balance">전국밸런스</button>
+          <button onclick="showProject('lasttrain')" class="project-tab text-sm text-muted" data-project="lasttrain">막차탑승</button>
+          <button onclick="showProject('memex')" class="project-tab text-sm text-muted" data-project="memex">memex</button>
         </div>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <span class="label w-full sm:w-40 shrink-0">데이터 분석</span>
-          <button onclick="showProject('airbnb')" class="project-tab text-xs text-muted" data-project="airbnb">airbnb-analysis</button>
-          <button onclick="showProject('lending')" class="project-tab text-xs text-muted" data-project="lending">lendingclub</button>
-          <button onclick="showProject('gms')" class="project-tab text-xs text-muted" data-project="gms">google-analytics</button>
+          <span class="text-xs font-semibold tracking-[0.12em] text-muted uppercase w-full sm:w-36 shrink-0">데이터 분석</span>
+          <button onclick="showProject('airbnb')" class="project-tab text-sm text-muted" data-project="airbnb">airbnb-analysis</button>
+          <button onclick="showProject('lending')" class="project-tab text-sm text-muted" data-project="lending">lendingclub</button>
+          <button onclick="showProject('gms')" class="project-tab text-sm text-muted" data-project="gms">google-analytics</button>
         </div>
       </div>
-      <p class="mono text-xs text-muted mb-12">// &larr; ai-builder  |  data-analysis &rarr;</p>
 
       <!-- ohajo -->
       <div id="project-ohajo" class="project-content hidden">
@@ -786,7 +786,7 @@
           </ul>
         </div>
 
-        <p class="label mb-3">$ ls screenshots/ohajo/</p>
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">화면</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
             <div class="ratio-mobile"><img src="assets/projects/ohajo/01-home.png" alt="ohajo 홈" loading="lazy" /></div>
@@ -924,7 +924,7 @@
           </ul>
         </div>
 
-        <p class="label mb-3">$ ls screenshots/tiktok/</p>
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">화면</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
             <div class="ratio-desktop"><img src="assets/projects/tiktok/01-dashboard.png" alt="tiktok 자동화 대시보드" loading="lazy" /></div>
@@ -1092,7 +1092,7 @@
           </ul>
         </div>
 
-        <p class="label mb-3">$ ls screenshots/pickit/</p>
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">화면</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
             <div class="ratio-mobile"><img src="assets/projects/pickit/home.png" alt="픽잇 홈" loading="lazy" /></div>
@@ -1141,7 +1141,7 @@
           <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">바이럴</div><div class="text-xs text-muted mt-1">소수파 % 공유 카드</div></div>
         </div>
 
-        <p class="label mb-3">$ ls screenshots/balance/</p>
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">화면</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
             <div class="ratio-mobile"><img src="assets/projects/balance/today.png" alt="전국밸런스 오늘의 질문" loading="lazy" /></div>
@@ -1195,7 +1195,7 @@
           <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">라이브</div><div class="text-xs text-muted mt-1">Vercel 배포 운영</div></div>
         </div>
 
-        <p class="label mb-3">$ ls screenshots/daily-report-viewer/</p>
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">화면</p>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <div class="img-card overflow-hidden border border-line bg-white">
             <div class="ratio-wide"><img src="assets/projects/daily-report-viewer/home.png" alt="데일리 리포트 뷰어 홈" loading="lazy" /></div>
@@ -1250,7 +1250,7 @@
           <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">실수 0</div><div class="text-xs text-muted mt-1">사람 손 안 탐</div></div>
         </div>
 
-        <p class="label mb-3">$ ls screenshots/excel-automation/</p>
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">화면</p>
         <div class="grid grid-cols-1 gap-4 mb-10 max-w-2xl">
           <div class="img-card overflow-hidden border border-line bg-white">
             <div class="ratio-wide"><img src="assets/projects/excel-automation/detail-1.jpg" alt="자동화 서비스 범위" loading="lazy" /></div>
@@ -1287,7 +1287,7 @@
           <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">Skia</div><div class="text-xs text-muted mt-1">게임 캔버스 직접 렌더</div></div>
         </div>
 
-        <p class="label mb-3">$ ls screenshots/last-train/</p>
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">화면</p>
         <div class="grid grid-cols-2 gap-4 mb-10 max-w-md">
           <div class="img-card overflow-hidden border border-line bg-white">
             <div class="ratio-mobile"><img src="assets/projects/lasttrain/home.png" alt="막차 탑승 홈" loading="lazy" /></div>
@@ -1516,80 +1516,70 @@
   <div id="page-resume" class="page pt-14">
     <section class="max-w-5xl mx-auto px-6 sm:px-10 py-20 sm:py-28">
 
-      <p class="label mb-4">$ cat resume.md</p>
-      <h2 class="text-3xl sm:text-4xl font-bold mb-3 mono">이력서</h2>
-      <p class="text-muted mb-12">문제를 정의하고, AI를 활용해 실제로 해결책까지 구현합니다.</p>
+      <div data-reveal>
+        <p class="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">Resume</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">이력서</h2>
+        <p class="text-muted mb-10 max-w-2xl">문제를 정의하고, AI를 활용해 실제 해결책까지 구현합니다.</p>
+      </div>
 
-      <div class="tech-card p-6 sm:p-8 mb-10">
+      <div class="tech-card rounded-2xl p-6 sm:p-8 mb-8" data-reveal style="transition-delay:60ms">
         <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 pb-6 border-b border-line">
-          <div class="w-14 h-14 bg-ink flex items-center justify-center text-paper mono text-lg font-bold flex-shrink-0">jm</div>
+          <div class="w-14 h-14 rounded-xl bg-ink flex items-center justify-center text-paper text-lg font-bold flex-shrink-0">jm</div>
           <div class="flex-1">
-            <h3 class="text-xl font-bold mono">이정모</h3>
-            <p class="text-muted text-xs mt-1 mono">ai-builder &middot; problem-solver &middot; cs-6y &middot; data-analyst</p>
+            <h3 class="text-xl font-bold">이정모</h3>
+            <p class="text-muted text-sm mt-1">AI 빌더 &middot; 문제 해결자 &middot; CS 팀리드 6년 &middot; 데이터 분석</p>
           </div>
           <div class="flex items-center gap-2 no-print">
-            <button onclick="window.print()" class="mono inline-flex items-center gap-2 border border-line text-muted px-4 py-2 text-xs font-medium hover:border-ink hover:text-ink transition-all bg-transparent cursor-pointer">&darr; pdf</button>
-            <a href="mailto:jmjungtube@gmail.com?subject=Resume%20Request" class="mono inline-flex items-center gap-2 border border-ink text-ink px-4 py-2 text-xs font-medium hover:bg-ink hover:text-paper transition-all">request --resume</a>
+            <button onclick="window.print()" class="inline-flex items-center gap-1.5 rounded-full border border-line text-muted px-4 py-2 text-xs font-medium hover:border-ink hover:text-ink transition-all bg-white cursor-pointer">PDF 저장</button>
+            <a href="mailto:jmjungtube@gmail.com?subject=Resume%20Request" class="inline-flex items-center gap-1.5 rounded-full bg-accent text-white px-4 py-2 text-xs font-semibold hover:bg-navy transition-all">이력서 요청</a>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div class="tech-card p-4">
-            <p class="label mb-1">ai_projects</p>
-            <div class="mono text-2xl font-bold">05</div>
-          </div>
-          <div class="tech-card p-4">
-            <p class="label mb-1">team_lead</p>
-            <div class="mono text-2xl font-bold">6y</div>
-          </div>
-          <div class="tech-card p-4">
-            <p class="label mb-1">toeic</p>
-            <div class="mono text-2xl font-bold">900</div>
-          </div>
-          <div class="tech-card p-4">
-            <p class="label mb-1">data_projects</p>
-            <div class="mono text-2xl font-bold">03</div>
-          </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div><div class="text-3xl font-bold text-accent">05</div><div class="text-xs text-muted mt-1.5">AI 빌더 프로젝트</div></div>
+          <div><div class="text-3xl font-bold text-accent">6<span class="text-xl">년</span></div><div class="text-xs text-muted mt-1.5">팀리드 (글로벌)</div></div>
+          <div><div class="text-3xl font-bold text-accent">900</div><div class="text-xs text-muted mt-1.5">TOEIC</div></div>
+          <div><div class="text-3xl font-bold text-accent">03</div><div class="text-xs text-muted mt-1.5">데이터 분석 프로젝트</div></div>
         </div>
       </div>
 
       <!-- 경력 -->
-      <div class="mb-10">
-        <p class="label mb-3">$ history --career</p>
-        <div class="tech-card p-6">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-            <h4 class="font-semibold text-lg mono">UBASE <span class="text-muted">/</span> CS 팀리드 (SV)</h4>
+      <div class="mb-8" data-reveal>
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">Career</p>
+        <div class="tech-card rounded-2xl p-6 sm:p-7">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-1">
+            <h4 class="font-bold text-lg">UBASE <span class="text-muted font-normal">&middot;</span> CS 팀리드 (SV)</h4>
             <span class="mono text-xs text-muted">2019.11 — 2025.09</span>
           </div>
-          <p class="text-sm text-muted mb-3">글로벌 숙박 운영 플랫폼 프로젝트 (5년 11개월) &middot; 영어 비즈니스 환경</p>
-          <ul class="space-y-1.5 text-sm text-muted">
-            <li class="flex items-start gap-2"><span class="text-soft mt-0.5">&ndash;</span>팀원 10명+ 데이터 기반 퍼포먼스 분석 및 KPI 개선 주도</li>
-            <li class="flex items-start gap-2"><span class="text-soft mt-0.5">&ndash;</span>NPS &middot; CSAT &middot; Quality 지표 모니터링 (Tableau &middot; Salesforce &middot; Genesys)</li>
-            <li class="flex items-start gap-2"><span class="text-soft mt-0.5">&ndash;</span>데이터 기반 PIP 설계로 컴플라이언스 Quality 최상위권 6년 지속</li>
+          <p class="text-sm text-muted mb-4">글로벌 숙박 운영 플랫폼 (5년 11개월) &middot; 영어 비즈니스 환경</p>
+          <ul class="space-y-2 text-sm text-ink/70">
+            <li class="flex items-start gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>팀원 10명+ 데이터 기반 퍼포먼스 분석 및 KPI 개선 주도</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>NPS &middot; CSAT &middot; Quality 지표 모니터링 (Tableau &middot; Salesforce &middot; Genesys)</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>데이터 기반 PIP 설계로 컴플라이언스 Quality 최상위권 6년 지속</li>
           </ul>
         </div>
       </div>
 
       <!-- 학력 / 외국어 -->
-      <div class="grid sm:grid-cols-2 gap-6">
+      <div class="grid sm:grid-cols-2 gap-6" data-reveal style="transition-delay:60ms">
         <div>
-          <p class="label mb-3">$ ls education/</p>
+          <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">Education</p>
           <div class="space-y-3">
-            <div class="tech-card p-4">
-              <div class="font-medium mono">스파르타코딩클럽</div>
-              <div class="text-xs text-muted mono mt-1">데이터 분석 부트캠프 &middot; 2025.12 — 2026.03</div>
+            <div class="tech-card rounded-xl p-4">
+              <div class="font-semibold">스파르타코딩클럽</div>
+              <div class="text-xs text-muted mt-1">데이터 분석 부트캠프 &middot; 2025.12 — 2026.03</div>
             </div>
-            <div class="tech-card p-4">
-              <div class="font-medium mono">Mahidol University International College</div>
-              <div class="text-xs text-muted mono mt-1">BBA Finance &middot; 2013 — 2018</div>
+            <div class="tech-card rounded-xl p-4">
+              <div class="font-semibold">Mahidol University International College</div>
+              <div class="text-xs text-muted mt-1">BBA Finance &middot; 2013 — 2018</div>
             </div>
           </div>
         </div>
         <div>
-          <p class="label mb-3">$ ls languages/</p>
-          <div class="tech-card p-4">
-            <div class="font-medium mono">English <span class="text-accent">(business)</span></div>
-            <div class="text-xs text-muted mono mt-1">TOEIC 900 &middot; 태국 국제학교 전 과정 &middot; 글로벌 협업 6년</div>
+          <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">Language</p>
+          <div class="tech-card rounded-xl p-4">
+            <div class="font-semibold">English <span class="text-accent font-normal">(business)</span></div>
+            <div class="text-xs text-muted mt-1">TOEIC 900 &middot; 태국 국제학교 전 과정 &middot; 글로벌 협업 6년</div>
           </div>
         </div>
       </div>
@@ -1602,9 +1592,11 @@
   <div id="page-contact" class="page pt-14">
     <section class="max-w-5xl mx-auto px-6 sm:px-10 py-20 sm:py-28">
 
-      <p class="label mb-4">$ ./contact.sh</p>
-      <h2 class="text-3xl sm:text-4xl font-bold mb-4 mono">함께 일해요<span class="cursor"></span></h2>
-      <p class="text-muted mb-12 max-w-md">AI 빌더 협업, 데이터 분석, FDE/AI Operator 채용 제안 모두 환영합니다.</p>
+      <div data-reveal>
+        <p class="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">Contact</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">함께 일해요</h2>
+        <p class="text-muted mb-12 max-w-md">AI 빌더 협업, 데이터 분석, FDE/AI Operator 채용 제안 모두 환영합니다.</p>
+      </div>
 
       <div class="space-y-3 max-w-md mb-12">
         <a href="mailto:jmjungtube@gmail.com" class="flex items-center gap-4 tech-card px-5 py-4 group">
@@ -1630,7 +1622,7 @@
         </a>
       </div>
 
-      <p class="mono text-xs text-muted/60"># &copy; 2026 jungmo lee &middot; ai-builder &amp; problem-solver</p>
+      <p class="text-xs text-muted/60">&copy; 2026 이정모 &middot; AI Builder &amp; Problem Solver</p>
     </section>
   </div>
 
