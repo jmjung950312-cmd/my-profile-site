@@ -223,6 +223,34 @@
     .btn-rise { transition: transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s ease, background-color .2s ease; }
     .btn-rise:hover { transform: translateY(-2px); }
 
+    /* === 프로젝트 화면 — 떠 있는 디자인 카드 (납작 테두리 제거, 2026-06-30) === */
+    #page-projects .img-card {
+      border: 0 !important;
+      border-radius: 18px;
+      background: linear-gradient(155deg, #eef2ff 0%, #f8fafc 62%) !important;
+      box-shadow: 0 28px 56px -28px rgba(15,23,42,.42), 0 8px 18px -12px rgba(15,23,42,.20);
+      padding: 11px;
+      transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
+    }
+    #page-projects .img-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 40px 74px -28px rgba(15,23,42,.5), 0 12px 24px -12px rgba(15,23,42,.28);
+    }
+    #page-projects .img-card .ratio-desktop,
+    #page-projects .img-card .ratio-mobile,
+    #page-projects .img-card .ratio-wide,
+    #page-projects .img-card .ratio-square {
+      border-radius: 11px;
+      background: #ffffff;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+    }
+    #page-projects .img-caption {
+      font-family: 'Inter', 'Noto Sans KR', sans-serif !important;
+      padding: 12px 6px 4px !important;
+      color: #525252;
+    }
+    #page-projects .img-zoom-hint { border-radius: 8px; top: 18px; right: 18px; }
+
     /* 인쇄 / PDF 저장 — 이력서 페이지만 A4로 깔끔하게 */
     @media print {
       nav, #mobile-menu, .no-print { display: none !important; }
@@ -618,28 +646,22 @@
 
       <!-- 문제 해결 -->
       <div id="skill-problem" class="skill-content">
-        <p class="text-sm text-muted mb-8 max-w-2xl">현장에서 무엇이 비즈니스를 망치는지 6년간 체득. 글로벌 환경에서 KPI 기반 의사결정을 운영한 경험.</p>
-        <div class="space-y-8">
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">문제 정의 & 우선순위</span><span class="text-sm text-muted ml-3">PRD, 사용자 흐름 설계, 비즈니스 임팩트 분석</span></div>
-              <span class="text-sm text-muted">90%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="90"></div></div>
+        <p class="text-sm text-muted mb-8 max-w-2xl">숫자로 등급을 매기지 않습니다. 각 역량은 실제 경험과 배포한 프로젝트로 증명합니다.</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">문제 정의 &middot; 우선순위</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">PRD, 사용자 흐름 설계, 비즈니스 임팩트 분석</p>
+            <p class="text-xs font-medium text-accent">증명 — 모든 프로젝트의 기획·설계</p>
           </div>
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">팀 운영 & 코칭</span><span class="text-sm text-muted ml-3">10명+ 글로벌 팀, KPI 기반 코칭, PIP 설계 6년</span></div>
-              <span class="text-sm text-muted">85%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="85"></div></div>
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">팀 운영 &middot; 코칭</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">10명+ 글로벌 팀, KPI 기반 코칭, PIP 설계 6년</p>
+            <p class="text-xs font-medium text-accent">증명 — UBASE CS 팀리드 (2019–2025)</p>
           </div>
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">영어 비즈니스 커뮤니케이션</span><span class="text-sm text-muted ml-3">TOEIC 900 &middot; 국제학교 전 과정 &middot; 글로벌 협업 6년</span></div>
-              <span class="text-sm text-muted">90%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="90"></div></div>
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">영어 비즈니스 커뮤니케이션</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">TOEIC 900 &middot; 태국 국제학교 전 과정 &middot; 글로벌 협업 6년</p>
+            <p class="text-xs font-medium text-accent">증명 — 글로벌 운영 6년</p>
           </div>
         </div>
       </div>
@@ -647,34 +669,26 @@
       <!-- AI 빌더 -->
       <div id="skill-ai" class="skill-content hidden">
         <p class="text-sm text-muted mb-8 max-w-2xl">AI 멀티에이전트로 풀스택 앱부터 운영 인프라까지 직접 설계·구현·배포. 비개발자지만 프로덕션 수준의 시스템을 만듭니다.</p>
-        <div class="space-y-8">
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">Claude Code &middot; AI 멀티에이전트</span><span class="text-sm text-muted ml-3">29+ 에이전트 운영, Gen-Eval 패턴, 멀티에이전트 오케스트레이션</span></div>
-              <span class="text-sm text-muted">85%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="85"></div></div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">Claude Code &middot; AI 멀티에이전트</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">29+ 에이전트 운영, Gen-Eval 패턴(만든 AI와 검수 AI 분리), 멀티에이전트 오케스트레이션</p>
+            <button onclick="showPage('projects'); showProject('nexus')" class="text-xs font-semibold text-accent hover:underline cursor-pointer bg-transparent border-none p-0">증명 — JARVIS (29+ 에이전트) &rarr;</button>
           </div>
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">풀스택 (AI 협업 개발)</span><span class="text-sm text-muted ml-3">Next.js 15, React 19, NestJS, PostgreSQL, Expo</span></div>
-              <span class="text-sm text-muted">75%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="75"></div></div>
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">풀스택 (Next.js &middot; React 19 &middot; NestJS &middot; Expo)</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">웹부터 네이티브 앱까지, 설계·구현·배포 일관</p>
+            <button onclick="showPage('projects'); showProject('memex')" class="text-xs font-semibold text-accent hover:underline cursor-pointer bg-transparent border-none p-0">증명 — memex(웹 라이브) &middot; ohajo(앱) &rarr;</button>
           </div>
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">자동화 파이프라인</span><span class="text-sm text-muted ml-3">콘텐츠 자동화, API 오케스트레이션, 워크플로우 설계</span></div>
-              <span class="text-sm text-muted">80%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="80"></div></div>
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">자동화 파이프라인</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">콘텐츠 자동화, API 오케스트레이션, 워크플로우 설계</p>
+            <button onclick="showPage('projects'); showProject('tiktok')" class="text-xs font-semibold text-accent hover:underline cursor-pointer bg-transparent border-none p-0">증명 — tiktok-automation &middot; daily-report &rarr;</button>
           </div>
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">아키텍처 & 검증 설계</span><span class="text-sm text-muted ml-3">PRD, ADR, 규칙 기반 검증 루프, Sprint Contract</span></div>
-              <span class="text-sm text-muted">80%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="80"></div></div>
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">아키텍처 &middot; 검증 설계</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">PRD, ADR(설계 결정 기록), 규칙 기반 검증 루프, Sprint Contract</p>
+            <p class="text-xs font-medium text-accent">증명 — 모든 프로젝트의 설계 문서</p>
           </div>
         </div>
       </div>
@@ -682,34 +696,26 @@
       <!-- 데이터 분석 -->
       <div id="skill-data" class="skill-content hidden">
         <p class="text-sm text-muted mb-8 max-w-2xl">부트캠프 수료 + 실무 프로젝트로 검증된 데이터 분석 역량. 모델링·시각화·통계 검정까지.</p>
-        <div class="space-y-8">
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">SQL</span><span class="text-sm text-muted ml-3">BigQuery, 윈도우 함수, 서브쿼리</span></div>
-              <span class="text-sm text-muted">85%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="85"></div></div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">SQL</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">BigQuery, 윈도우 함수, 서브쿼리</p>
+            <button onclick="showPage('projects'); showProject('gms')" class="text-xs font-semibold text-accent hover:underline cursor-pointer bg-transparent border-none p-0">증명 — google-analytics 분석 &rarr;</button>
           </div>
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">Python</span><span class="text-sm text-muted ml-3">pandas, scikit-learn, SHAP, LightGBM</span></div>
-              <span class="text-sm text-muted">80%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="80"></div></div>
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">Python</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">pandas, scikit-learn, SHAP, LightGBM</p>
+            <button onclick="showPage('projects'); showProject('lending')" class="text-xs font-semibold text-accent hover:underline cursor-pointer bg-transparent border-none p-0">증명 — lendingclub &middot; airbnb &rarr;</button>
           </div>
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">Tableau &middot; Streamlit</span><span class="text-sm text-muted ml-3">KPI 대시보드, 인터랙티브 시각화</span></div>
-              <span class="text-sm text-muted">75%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="75"></div></div>
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">Tableau &middot; Streamlit</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">KPI 대시보드, 인터랙티브 시각화</p>
+            <button onclick="showPage('projects'); showProject('airbnb')" class="text-xs font-semibold text-accent hover:underline cursor-pointer bg-transparent border-none p-0">증명 — airbnb 수익 대시보드 &rarr;</button>
           </div>
-          <div>
-            <div class="flex justify-between items-end mb-2">
-              <div><span class="font-semibold text-lg">통계 & 모델링</span><span class="text-sm text-muted ml-3">Kruskal-Wallis, Chi-squared, K-Means, LightGBM</span></div>
-              <span class="text-sm text-muted">75%</span>
-            </div>
-            <div class="bg-gray-100 rounded-full h-1.5"><div class="skill-fill bg-accent h-1.5 rounded-full" data-width="75"></div></div>
+          <div class="tech-card rounded-xl p-5 hover:border-accent transition-colors">
+            <h4 class="font-semibold mb-1.5">통계 &middot; 모델링</h4>
+            <p class="text-sm text-muted leading-relaxed mb-4">Kruskal-Wallis, Chi-squared, K-Means, LightGBM</p>
+            <button onclick="showPage('projects'); showProject('lending')" class="text-xs font-semibold text-accent hover:underline cursor-pointer bg-transparent border-none p-0">증명 — 3개 분석 프로젝트 &rarr;</button>
           </div>
         </div>
       </div>
@@ -943,7 +949,7 @@
           </div>
         </div>
 
-        <h4 class="font-semibold mb-4 mono"># pipeline</h4>
+        <h4 class="font-semibold mb-4">파이프라인</h4>
         <div class="tech-card p-6 mb-10 max-w-2xl">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-center mono">
             <div class="flex-1"><div class="text-xs text-muted">01</div><div class="font-semibold text-sm mt-1">스크립트</div><div class="text-xs text-muted">AI 생성</div></div>
@@ -1003,7 +1009,7 @@
           </ul>
         </div>
 
-        <h4 class="font-semibold mb-4 mono"># 핵심 가설</h4>
+        <h4 class="font-semibold mb-4">핵심 가설</h4>
         <div class="border-l-2 border-accent pl-5 mb-10 max-w-2xl">
           <p class="text-ink leading-relaxed mb-2 mono">
             &ldquo;AI는 정보를 한 번에 다 수집하는데, 사람만 흩어져서 본다.&rdquo;
@@ -1032,14 +1038,14 @@
             <div class="img-caption hidden">글 상세 &mdash; 읽기 화면 + 좋아요 &middot; 댓글</div>
           </div>
         </div>
-        <p class="mono text-xs text-muted/70 mb-10"># memex.kr &mdash; 누구나 가입해 자기 페이지를 만들 수 있는 공개 서비스</p>
+        <p class="text-xs text-muted/70 mb-10">memex.kr — 누구나 가입해 자기 페이지를 만들 수 있는 공개 서비스</p>
 
         <h4 class="font-semibold mb-4">모바일 웹 (반응형)</h4>
         <div class="grid grid-cols-2 gap-4 mb-3 max-w-sm">
           <div class="img-card phone-mock"><img class="shot" src="assets/projects/memex/live-2026-06-30/memex-live-mobile-landing.png" alt="memex 모바일 랜딩" loading="lazy" /><div class="img-caption hidden">모바일 웹 &mdash; 랜딩</div></div>
           <div class="img-card phone-mock"><img class="shot" src="assets/projects/memex/live-2026-06-30/memex-live-mobile-profile.png" alt="memex 모바일 프로필" loading="lazy" /><div class="img-caption hidden">모바일 웹 &mdash; 프로필</div></div>
         </div>
-        <p class="mono text-xs text-muted/70 mb-10"># memex.kr &mdash; 모바일에서도 같은 화면, 공개 운영 중</p>
+        <p class="text-xs text-muted/70 mb-10">memex.kr — 모바일에서도 같은 화면, 공개 운영 중</p>
 
         <h4 class="font-semibold mb-4">네이티브 앱 (개발 중)</h4>
         <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-3 sm:max-w-lg">
@@ -1047,7 +1053,7 @@
           <div class="img-card phone-mock"><img class="shot" src="assets/projects/memex/app-globe.png" alt="memex 앱 메모리 글로브" loading="lazy" /><div class="img-caption hidden">앱 &mdash; 메모리 글로브 (기억 지구본)</div></div>
           <div class="img-card phone-mock"><img class="shot" src="assets/projects/memex/app-post.png" alt="memex 앱 게시글" loading="lazy" /><div class="img-caption hidden">앱 &mdash; 게시글 상세</div></div>
         </div>
-        <p class="mono text-xs text-muted/70 mb-10"># Expo &middot; React Native 네이티브 앱 &mdash; 웹과 같은 비전, 개발 중</p>
+        <p class="text-xs text-muted/70 mb-10">Expo · React Native 네이티브 앱 — 웹과 같은 비전, 개발 중</p>
 
         <div class="flex flex-wrap gap-2 mb-6">
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Next.js</span>
