@@ -457,7 +457,7 @@
       <p class="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-8" data-reveal>By the numbers</p>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8" data-reveal style="transition-delay:80ms">
         <div>
-          <div class="text-4xl sm:text-5xl font-bold tracking-tight text-accent">05</div>
+          <div class="text-4xl sm:text-5xl font-bold tracking-tight text-accent">10</div>
           <div class="text-sm text-muted mt-2">프로덕션 프로젝트</div>
         </div>
         <div>
@@ -600,7 +600,7 @@
       <!-- 숫자 -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-24 pb-16 sm:pb-20 border-b border-line" data-reveal>
         <div>
-          <div class="text-4xl sm:text-5xl font-bold tracking-tight text-accent">05</div>
+          <div class="text-4xl sm:text-5xl font-bold tracking-tight text-accent">10</div>
           <div class="text-sm text-muted mt-2">AI 빌더 프로젝트</div>
         </div>
         <div>
@@ -785,6 +785,7 @@
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
           <span class="text-xs font-semibold tracking-[0.12em] text-muted uppercase w-full sm:w-36 shrink-0">앱 &middot; 게임</span>
           <button onclick="showProject('ohajo')" class="project-tab text-sm text-muted" data-project="ohajo">ohajo</button>
+          <button onclick="showProject('ssolssol')" class="project-tab text-sm text-muted" data-project="ssolssol">쏠쏠</button>
           <button onclick="showProject('pickit')" class="project-tab text-sm text-muted" data-project="pickit">pick-it</button>
           <button onclick="showProject('balance')" class="project-tab text-sm text-muted" data-project="balance">전국밸런스</button>
           <button onclick="showProject('lasttrain')" class="project-tab text-sm text-muted" data-project="lasttrain">막차탑승</button>
@@ -826,7 +827,7 @@
           <h4 class="font-semibold text-sm mb-3">문제 정의 &rarr; 내 판단 &rarr; AI 활용</h4>
           <ul class="text-sm text-muted space-y-2">
             <li><span class="text-soft font-medium">문제:</span> 동네 스포츠 매칭 시 정보 비대칭으로 시간/비용 낭비</li>
-            <li><span class="text-soft font-medium">판단:</span> 회원이 가격·조건을 정하는 &lsquo;역경매형&rsquo; 모델 &mdash; 회원이 종목을 의뢰하면 전문가가 제안</li>
+            <li><span class="text-soft font-medium">판단:</span> 회원이 가격·조건을 직접 정하고, 동네 전문가들이 제안해 그중 한 명을 고르는 모델</li>
             <li><span class="text-soft font-medium">AI 활용:</span> Claude Code 멀티에이전트로 PRD &rarr; 설계 &rarr; 구현 &rarr; 테스트 &rarr; 배포 전 과정 오케스트레이션</li>
             <li><span class="text-soft font-medium">내 역할:</span> 제품 기획, 아키텍처 결정, 사용자 흐름 설계, 용어 체계(회원·전문가·공간대여자) 정립, QA, 배포 운영</li>
           </ul>
@@ -850,9 +851,9 @@
             <div class="p-3 mono text-xs text-muted img-caption">마이페이지 / 활동 관리</div>
           </div>
           <div class="img-card overflow-hidden border border-line bg-white">
-            <div class="ratio-mobile"><img src="assets/projects/ohajo/04-livecard.png" alt="ohajo 라이브 입찰" loading="lazy" /></div>
+            <div class="ratio-mobile"><img src="assets/projects/ohajo/04-livecard.png" alt="ohajo 실시간 제안 카드" loading="lazy" /></div>
             <span class="img-zoom-hint">⤢</span>
-            <div class="p-3 mono text-xs text-muted img-caption">라이브 입찰 카드</div>
+            <div class="p-3 mono text-xs text-muted img-caption">실시간 제안 카드</div>
           </div>
         </div>
 
@@ -875,6 +876,54 @@
           <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Claude Code Multi-Agent</span>
         </div>
         <p class="text-xs text-muted/70">웹 <a href="https://www.ohajo.kr" target="_blank" rel="noopener" class="underline">www.ohajo.kr</a> 라이브 &middot; 앱은 심사 준비 중 &middot; 데모 요청은 <a href="mailto:jmjungtube@gmail.com" class="underline">메일</a>로</p>
+      </div>
+
+      <!-- 쏠쏠 ssolssol -->
+      <div id="project-ssolssol" class="project-content hidden">
+        <div class="mb-8 flex flex-wrap items-center gap-2">
+          <span class="mono text-xs text-paper bg-accent px-2.5 py-1">[ai-builder]</span>
+          <span class="text-xs mono text-muted border border-line px-2.5 py-1">개인 프로젝트 &middot; 2026.06 &middot; 웹앱 라이브</span>
+          <a href="https://ssolssol-steel.vercel.app" target="_blank" rel="noopener" class="text-xs mono text-paper bg-ink px-2.5 py-1 hover:opacity-80 transition">쏠쏠 &#8599; 라이브</a>
+        </div>
+
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">쏠쏠 &mdash; 오늘 알면 이득인 정보 앱</h3>
+        <p class="text-muted leading-relaxed mb-8 max-w-2xl">
+          내 동네 주유소 최저가, 마감 임박 정부 지원금, 오늘의 핫딜을 한 화면에 모은 생활 정보 앱.
+          <span class="text-soft font-medium">공공 데이터 3종을 실시간으로 끌어와</span>, 흩어져 있어 놓치기 쉬운 &lsquo;받을 수 있는 돈&rsquo;을 매일 챙겨줍니다.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">3종</div><div class="text-xs text-muted mt-1">실데이터 (주유·지원금·핫딜)</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">라이브</div><div class="text-xs text-muted mt-1">Vercel 배포 운영</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">동네 기반</div><div class="text-xs text-muted mt-1">위치별 최저가</div></div>
+        </div>
+
+        <div class="tech-card p-6 mb-10 max-w-2xl bg-light">
+          <h4 class="font-semibold text-sm mb-3">문제 정의 &rarr; 내 판단 &rarr; AI 활용</h4>
+          <ul class="text-sm text-muted space-y-2">
+            <li><span class="text-soft font-medium">문제:</span> 주유 최저가&middot;정부 지원금&middot;핫딜이 제각기 다른 곳에 흩어져 챙기기 번거로움</li>
+            <li><span class="text-soft font-medium">판단:</span> 내 동네 기준으로 &lsquo;오늘 이득 되는 정보&rsquo;만 한 화면에 모으는 생활 앱</li>
+            <li><span class="text-soft font-medium">AI 활용:</span> 오피넷(주유 공공 데이터)&middot;보조금24(정부 지원금)&middot;뽐뿌(핫딜) 공개 데이터를 수집&middot;정제해 실시간 연동</li>
+            <li><span class="text-soft font-medium">내 역할:</span> 제품 기획, 데이터 소스 선정, 화면 설계, 디자인, 배포 운영</li>
+          </ul>
+        </div>
+
+        <p class="text-xs font-semibold tracking-[0.15em] text-muted uppercase mb-3">화면</p>
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-3 sm:max-w-lg">
+          <div class="img-card phone-mock"><img class="shot" src="assets/projects/ssolssol/home.png" alt="쏠쏠 홈 — 주유 최저가 + 지원금" loading="lazy" /><div class="img-caption hidden">홈 &mdash; 동네 주유 최저가 + 지원금</div></div>
+          <div class="img-card phone-mock"><img class="shot" src="assets/projects/ssolssol/compare.png" alt="쏠쏠 주유소 가격 비교" loading="lazy" /><div class="img-caption hidden">비교 &mdash; 반경 5km 주유소 가격순</div></div>
+          <div class="img-card phone-mock"><img class="shot" src="assets/projects/ssolssol/trend.png" alt="쏠쏠 트렌드" loading="lazy" /><div class="img-caption hidden">트렌드 &mdash; 오늘 알면 좋은 한 줄</div></div>
+        </div>
+        <p class="text-xs text-muted/70 mb-10">ssolssol-steel.vercel.app &mdash; 누구나 접속해 내 동네 정보를 볼 수 있는 라이브 웹앱</p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Next.js 16</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">React 19</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Tailwind CSS 4</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">공공데이터 API</span>
+          <span class="mono text-xs border border-line bg-white text-ink px-2.5 py-1">Vercel</span>
+        </div>
+        <p class="text-xs text-muted/70">웹 <a href="https://ssolssol-steel.vercel.app" target="_blank" rel="noopener" class="underline">ssolssol-steel.vercel.app</a> 라이브 &middot; 결제&middot;핫딜 수익화는 외부 승인 진행 중</p>
       </div>
 
       <!-- claude-nexus -->
@@ -1246,7 +1295,7 @@
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-10 max-w-md">
-          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">94건+</div><div class="text-xs text-muted mt-1">AI 49 &middot; 주식 45 누적</div></div>
+          <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">120건+</div><div class="text-xs text-muted mt-1">AI 63 &middot; 주식 59 누적</div></div>
           <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">자동 갱신</div><div class="text-xs text-muted mt-1">GitHub API &middot; ISR</div></div>
           <div class="tech-card p-3 sm:p-4"><div class="text-xl font-bold">라이브</div><div class="text-xs text-muted mt-1">Vercel 배포 운영</div></div>
         </div>
@@ -1592,7 +1641,7 @@
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-          <div><div class="text-3xl font-bold text-accent">05</div><div class="text-xs text-muted mt-1.5">AI 빌더 프로젝트</div></div>
+          <div><div class="text-3xl font-bold text-accent">10</div><div class="text-xs text-muted mt-1.5">AI 빌더 프로젝트</div></div>
           <div><div class="text-3xl font-bold text-accent">6<span class="text-xl">년</span></div><div class="text-xs text-muted mt-1.5">팀리드 (글로벌)</div></div>
           <div><div class="text-3xl font-bold text-accent">900</div><div class="text-xs text-muted mt-1.5">TOEIC</div></div>
           <div><div class="text-3xl font-bold text-accent">03</div><div class="text-xs text-muted mt-1.5">데이터 분석 프로젝트</div></div>
